@@ -25,31 +25,31 @@ overview    : >
 # aggregate health.
 categories:
 
--       name     : Applications
+      - name     : Applications
         synopsis : "User-level application services"
         icon     : fa-cloud
 
--       name     : Humans
+      - name     : Humans
         synopsis : "Pathetic humans that serve the great hive mind That is Darksky. All hail Darksky!"
         icon     : fa-users
 
--       name     : Services
+      - name     : Services
         synopsis : "Infrastructure support network services"
         icon     : fa-gears
 
--       name     : Servers
+      - name     : Servers
         synopsis : "Dedicated servers, continental and residential"
         icon     : fa-sitemap
 
--       name     : Projects
+      - name     : Projects
         synopsis : "All active Darksky projects and statistics"
         icon     : fa-flask
 
--       name     : Corporation
+      - name     : Corporation
         synopsis : "Tracking Darksky stock price and news"
         icon     : fa-usd
 
--       name     : Maintenance
+      - name     : Maintenance
         synopsis : "Garbage collection, synchronisation, etc"
         icon     : fa-wrench
 

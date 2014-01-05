@@ -9,7 +9,6 @@ body {
 	margin-top:15%;
 	font-family: 'Raleway', sans-serif;
 	text-transform: uppercase;
-	text-align:center;
 	font-size:22px;
 	color:white;
 	background:black;
@@ -18,25 +17,25 @@ img {
 	margin-bottom:40px;
 }
 
-h1 {
-	zoom:2;
-}
 
 ul#categories {
 	position:absolute;
 	top:0;
 	left:0;
 	bottom:0;
-	direction:rtl;
-	text-align:right;
+	width:300px;
+	padding-left:50px;
+	margin:0;
+	background:#111;
 }
 
 ul#categories li {
 	/*direction:ltr;*/
+	margin-left:40px;
 }
 
 .category h2 {
-	margin:30px 0 0 10px;
+	margin:30px 0 0 0;
 }
 
 .category .healthbar {
