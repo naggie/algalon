@@ -1,0 +1,53 @@
+
+@font-face {
+	font-family: 'Raleway';
+	font-style: normal;
+	font-weight: 200;
+	src: local('Raleway ExtraLight'), local('Raleway-ExtraLight'), url(raleway.woff) format('woff');
+}
+body {
+	margin-top:15%;
+	font-family: 'Raleway', sans-serif;
+	text-transform: uppercase;
+	text-align:center;
+	font-size:22px;
+	color:white;
+	background:black;
+}
+img {
+	margin-bottom:40px;
+}
+
+h1 {
+	zoom:2;
+}
+
+ul#categories {
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	direction:rtl;
+	text-align:right;
+}
+
+ul#categories li {
+	/*direction:ltr;*/
+}
+
+.category h2 {
+	margin:30px 0 0 10px;
+}
+
+.category .healthbar {
+	background:red;
+	height:6px;
+	width:90%;
+	display:inline-block;
+}
+
+.category .healthbar .bar {
+	height:100%;
+	width:90%;
+	background:green;
+}
