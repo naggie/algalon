@@ -32,6 +32,7 @@ ul#categories {
 ul#categories li {
 	/*direction:ltr;*/
 	margin-left:40px;
+	margin-bottom:46px;
 }
 
 .category h2 {
