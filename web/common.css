@@ -11,7 +11,7 @@ body {
 	text-transform: uppercase;
 	font-size:22px;
 	color:white;
-	background:black;
+	background:#001F3F;
 }
 img {
 	margin-bottom:40px;
@@ -23,10 +23,10 @@ ul#categories {
 	top:0;
 	left:0;
 	bottom:0;
-	width:300px;
+	width:330px;
 	padding-left:50px;
 	margin:0;
-	background:#111;
+	background:#0074D9;
 }
 
 ul#categories li {
@@ -39,7 +39,7 @@ ul#categories li {
 }
 
 .category .healthbar {
-	background:red;
+	background:#FF4136;
 	height:6px;
 	width:90%;
 	display:inline-block;
@@ -48,5 +48,5 @@ ul#categories li {
 .category .healthbar .bar {
 	height:100%;
 	width:90%;
-	background:green;
+	background:#2ECC40;
 }
