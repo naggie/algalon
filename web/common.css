@@ -35,6 +35,10 @@ ul#categories li {
 	margin-bottom:46px;
 }
 
+ul#categories li:hover {
+	border-right:5px solid #7FDBFF;
+}
+
 .category h2 {
 	margin:30px 0 0 0;
 }
