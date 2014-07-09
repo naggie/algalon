@@ -91,14 +91,12 @@ nav .name {
 }
 
 .alerts {
-	display:inline;
 	background:#a02c2c;
 	border-radius:16px;
+	margin:6px;
 	font-size:14px;
-	position:relative;
-	top:-4px;
-	left:4px;
 	padding:0 7px 4px 6px;
+	float:right;
 }
 
 ul.meta li {
