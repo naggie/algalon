@@ -48,6 +48,7 @@ nav h2 {
 nav ul {
 	list-style-type: none;
 	padding:0;
+	background:#333333;
 }
 
 nav ul li {
