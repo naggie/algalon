@@ -49,6 +49,7 @@ nav ul li {
 	padding:15px 0 15px 10px;
 	border-top: 1px solid #444444;
 	border-bottom: 1px solid #222222;
+	cursor:pointer;
 }
 
 nav ul li:hover {
