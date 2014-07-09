@@ -37,6 +37,12 @@ nav {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	border-right:#444444;
+}
+
+nav h2 {
+	width:100%;
+	text-align:center;
 }
 
 nav ul {
@@ -52,18 +58,13 @@ nav ul li {
 	cursor:pointer;
 }
 
-nav ul li:hover {
+nav ul li:hover, nav ul li.selected {
 	background:#444444;
 	opacity:1 !important;
+
 }
 
-nav ul li.selected {
-	background:#031010;
-	border:none;
-	padding: 16px 0 16px 0;
-}
-
-nav ul li:active {
+nav ul li:active ,nav ul li.selected {
 	border-top: 1px solid #333333;
 	border-bottom:none;
 	padding-bottom:16px;
