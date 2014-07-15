@@ -8,7 +8,6 @@
 body {
 	margin-top:15%;
 	font-family: 'Raleway', sans-serif;
-	text-transform: uppercase;
 	font-size:22px;
 	color:white;
 	background:#031010;
@@ -23,8 +22,8 @@ ul#categories {
 	top:0;
 	left:0;
 	bottom:0;
-	width:330px;
-	padding-left:50px;
+	width:230px;
+	padding-left:12px;
 	margin:0;
 	background:#444444;
 }
@@ -32,15 +31,11 @@ ul#categories {
 ul#categories li {
 	/*direction:ltr;*/
 	margin-left:40px;
-	margin-bottom:46px;
+	margin-bottom:30px;
 }
 
 ul#categories li:hover {
 	background:#333333;
-}
-
-.category h2 {
-	margin:30px 0 0 0;
 }
 
 .category .healthbar {
@@ -54,4 +49,9 @@ ul#categories li:hover {
 	height:100%;
 	width:90%;
 	background:#5aac5e;
+}
+
+.category .name {
+	font-size:24px;
+	margin:30px 0 0 0;
 }
