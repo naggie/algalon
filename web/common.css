@@ -11,6 +11,7 @@ body {
 	color:white;
 	background:#031010;
 	border-top:6px solid #a02c2c;
+	overflow:hidden;
 	margin:0;
 }
 
@@ -102,4 +103,24 @@ nav .name {
 
 ul.meta li {
 	opacity:0.60;
+}
+
+section {
+	position:absolute;
+	left:230px;
+	right:0;
+	bottom:0;
+	top:6px;
+	overflow-y:scroll;
+	overflow-x:hidden;
+	text-align:center;
+	padding:40px;
+}
+
+section p {
+	max-width:600px;
+	margin:30px;
+	text-align:left;
+	display:inline-block;
+	opacity:0.8;
 }
