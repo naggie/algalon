@@ -43,6 +43,11 @@ nav ul li {
 
 nav ul li:hover {
 	background:#444444;
+	opacity:1 !important;
+}
+
+nav ul li.selected {
+	background:#031010;
 }
 
 .category .healthbar {
@@ -73,7 +78,6 @@ nav .name {
 	padding:0 7px 4px 6px;
 }
 
-ul.meta .name {
-	text-transform:uppercase;
-	font-size:20px;
+ul.meta li {
+	opacity:0.60;
 }
