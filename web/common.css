@@ -10,6 +10,8 @@ body {
 	font-size:22px;
 	color:white;
 	background:#031010;
+	border-top:6px solid #a02c2c;
+	margin:0;
 }
 
 h1,h2,h3,h4 {
@@ -23,7 +25,7 @@ img {
 
 nav {
 	position:absolute;
-	top:0;
+	top:6px;
 	left:0;
 	bottom:0;
 	width:230px;
