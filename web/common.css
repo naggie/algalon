@@ -13,6 +13,11 @@ body {
 	background:#031010;
 }
 
+h1,h2,h3,h4 {
+	/* no raleway without this... */
+	font-weight:300;
+}
+
 img {
 	margin-bottom:40px;
 }
