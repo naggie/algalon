@@ -1,10 +1,10 @@
-
 @font-face {
 	font-family: 'Raleway';
 	font-style: normal;
 	font-weight: 200;
 	src: local('Raleway ExtraLight'), local('Raleway-ExtraLight'), url(raleway.woff) format('woff');
 }
+
 body {
 	margin-top:15%;
 	font-family: 'Raleway', sans-serif;
@@ -12,12 +12,12 @@ body {
 	color:white;
 	background:#031010;
 }
+
 img {
 	margin-bottom:40px;
 }
 
-
-ul#categories {
+nav {
 	position:absolute;
 	top:0;
 	left:0;
@@ -25,17 +25,16 @@ ul#categories {
 	width:230px;
 	padding-left:12px;
 	margin:0;
-	background:#444444;
+	background:#333333;
 }
 
-ul#categories li {
+nav ul li {
 	/*direction:ltr;*/
-	margin-left:40px;
 	margin-bottom:30px;
 }
 
-ul#categories li:hover {
-	background:#333333;
+nav ul li:hover {
+	background:#444444;
 }
 
 .category .healthbar {
