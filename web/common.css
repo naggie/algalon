@@ -117,10 +117,49 @@ section {
 	padding:40px;
 }
 
-section p {
+section > p {
 	max-width:600px;
 	margin:30px;
 	text-align:left;
 	display:inline-block;
 	opacity:0.8;
+}
+
+div.panel {
+	width:400px;
+	margin:30px;
+	text-align:left;
+	display:inline-block;
+	background:#444444;
+	border-top:3px solid #5aac5e;
+}
+
+div.panel div.status {
+	float:right;
+	display:inline-block;
+	color:#5aac5e;
+	font-size:18px;
+	margin:3px 6px 3px 3px;
+}
+
+div.panel div.name {
+	position:relative;
+	top:-10px;
+	display:inline-block;
+	font-size:32px;
+
+}
+
+div.panel i.logo {
+	padding:6px 9px 6px 6px;
+	background:#5aac5e;
+	margin-right:10px;
+}
+
+div.panel header {
+	background:#333333;
+}
+
+div.panel p {
+	margin:6px;
 }
