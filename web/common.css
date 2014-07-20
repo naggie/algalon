@@ -134,6 +134,8 @@ div.panel {
 	display:inline-block;
 	background:#444444;
 	border-top:3px solid #5aac5e;
+	/*box-shadow:0 0 10px #5aac5e;*/
+	border-radius:5px;
 }
 
 div.panel div.status {
@@ -172,6 +174,7 @@ div.offline i.logo{
 
 div.offline {
 	border-top:3px solid #a02c2c;
+	box-shadow:0 0 70px #a02c2c;
 }
 
 div.offline div.status {
