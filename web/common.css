@@ -115,6 +115,8 @@ section {
 	overflow-x:hidden;
 	text-align:center;
 	padding:40px;
+	background:url('world.png') center center no-repeat;
+	background-size:contain;
 }
 
 section > p {
