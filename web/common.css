@@ -135,6 +135,7 @@ div.panel {
 	background:#444444;
 	border-top:3px solid #5aac5e;
 	/*box-shadow:0 0 10px #5aac5e;*/
+	opacity:0.85;
 }
 
 div.panel div.status {
