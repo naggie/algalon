@@ -133,8 +133,6 @@ div.panel {
 	text-align:left;
 	display:inline-block;
 	background:#444444;
-	border-top:3px solid #5aac5e;
-	/*box-shadow:0 0 10px #5aac5e;*/
 	opacity:0.85;
 }
 
@@ -155,7 +153,7 @@ div.panel div.name {
 }
 
 div.panel i.logo {
-	padding:6px 9px 6px 6px;
+	padding:10px;
 	background:#5aac5e;
 	margin-right:10px;
 }
@@ -170,10 +168,6 @@ div.panel p {
 
 div.offline i.logo{
 	background:#a02c2c;
-}
-
-div.offline {
-	border-top:3px solid #a02c2c;
 }
 
 div.offline div.status {
