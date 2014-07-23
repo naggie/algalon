@@ -14,6 +14,10 @@ var State = function(initial) {
 	if (!arguments[0])
 		initial = {}
 
+	console.assert(config.class,    'entity state: class must be defined')
+	console.assert(config.name,     'entity state: name must be defined')
+	console.assert(config.category, 'entity state: category must be defined')
+
 	// Reference object in method context
 	var self = this
 
@@ -23,6 +27,7 @@ var State = function(initial) {
 	}
 
 	// DOM ID safe
+	// TODO: evaluate using category-name
 	var generate_id = function() {
 		var hash = crypto.createHash('sha1')
 		var rand = Math.random().toString()
@@ -61,9 +66,6 @@ var State = function(initial) {
 		// patch a remote state
 		self.emit('set',healthy,true)
 	}
-
-	console.assert(config.class,'entity state: class must be defined')
-	console.assert(config.name, 'entity state: name must be defined')
 
 	// I don't want these attributes (from eventemitter) when serialising.
 	// I hope this won't break anything. It does not appear to.
