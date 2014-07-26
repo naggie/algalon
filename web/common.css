@@ -186,8 +186,8 @@ div.panel.dummy {
 	width:93%;/*??*/
 	height:12px;
 	margin-top:8px;
-	border:1px solid #444444;
-	background:#333333;
+	border:1px solid #222222;
+	background:#a02c2c;
 }
 
 .health > .bar {
