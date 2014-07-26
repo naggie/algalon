@@ -145,6 +145,7 @@ div.panel div.status {
 	color:#5aac5e;
 	font-size:18px;
 	margin:3px 6px 3px 3px;
+	text-transform:uppercase;
 }
 
 div.panel div.name {
@@ -170,11 +171,11 @@ div.panel p {
 }
 
 div.offline i.logo{
-	background:#a02c2c;
+	background:red;
 }
 
 div.offline div.status {
-	color:#a02c2c;
+	color:red;
 }
 
 /* force left alignment */
