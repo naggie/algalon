@@ -183,9 +183,9 @@ div.panel.dummy {
 }
 
 .health {
-	width:90%;
+	width:93%;/*??*/
 	height:12px;
-	margin:4px;
+	margin-top:8px;
 	border:1px solid #444444;
 	background:#333333;
 }
