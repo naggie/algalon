@@ -196,3 +196,10 @@ div.panel.dummy {
 	height:100%;
 	background:#5aac5e;
 }
+
+div.splash {
+	background:url('darksky-dark-bg.svg') #031010 no-repeat center center;
+	position:absolute;
+	top:0;right:0;left:0;bottom:0;
+	display:none;
+}
