@@ -14,23 +14,45 @@ var init = function(data) {
 }
 
 var Tab = function(initial) {
-	// TODO .call(this,initial) in subclasses to act as constructor
 	// TODO inheritance from generic Widget class
 	// TODO auto-hide alert numbers
-	// TODO set method (used by constructor, also)
 
-	var parent = $('#categories')
+	var parentSelector = '#categories'
+
+	var parent = $(parentSelector)
 	var template = $( $('.tab.template')[0].outerHTML )
 	parent.append(template)
 
+	// stuff which does not need to change
+	// and initial state
 	$('i',template).addClass(initial.icon)
 	$('.name',template).text(initial.name)
 	$('.alerts',template).hide()
 	template.removeClass('template')
 
-	if (initial.default)
-		template.addClass('selected')
-
 	// better system later
 	template.attr('title',initial.description)
+
+	// stuff which does change
+	this.set =  function(key,val) {
+		switch(key) {
+			case 'selected':
+				if (val) {
+					$(parentSelector+' .tab').removeClass('selected')
+					template.addClass('selected')
+				} else
+					template.removeClass('selected')
+			break;
+			case 'alerts':
+				if (!val)
+					$('.alerts',template).hide().text(0)
+				else
+					$('.alerts',template).show().text(val)
+			break;
+			default:
+			console.error('Unknown widget key:',key)
+		}
+	}
+
+	this.set('selected',initial.default)
 }
