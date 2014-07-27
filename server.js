@@ -21,7 +21,7 @@ var yaml     = require('js-yaml')
 var restify  = require('restify')
 var socketio = require('socket.io')
 var fs       = require('fs')
-var Aggr     = require('./lib/aggregator')
+var Aggr     = require('./lib/Aggregator')
 var aggr     = new Aggr()
 
 var manifest = yaml.safeLoad( fs.readFileSync(__dirname+'/darksky.algalon.yaml', 'utf8') )
@@ -45,6 +45,8 @@ server.use(restify.bodyParser({
 }))
 server.use(restify.jsonp())
 
+aggr.on('set',function(id,key,val){ io.emit('set',id,key,val) })
+aggr.on('append',function(id,key,val){ io.emit('append',id,key,val) })
 
 server.get('/data',function(req,res,next) {
 	res.header('Cache-Control','no-cache')
@@ -53,10 +55,10 @@ server.get('/data',function(req,res,next) {
 		name        : manifest.name,
 		slogan      : manifest.slogan,
 		description : manifest.description,
-		states      : aggr.states,
+		states      : aggr.instances,
 		health      : aggr.health, // %, also listen for health event
 	})
-//console.log(JSON.parse(JSON.stringify(aggr.states)))
+console.log(JSON.parse(JSON.stringify(aggr.instances)))
 })
 
 

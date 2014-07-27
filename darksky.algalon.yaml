@@ -61,7 +61,7 @@ entities:
 
         - name            : Boards
           category        : Services
-          class           : httptest
+          class           : httpservice
           url             : https://boards.darksky.io/
           description     : Discussion with the Darksky community
           icon            : fa-comments-o
