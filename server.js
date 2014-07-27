@@ -60,7 +60,7 @@ server.get('/data',function(req,res,next) {
 		states      : aggr.instances,
 		health      : aggr.health, // %, also listen for health event
 	})
-console.log(JSON.parse(JSON.stringify(aggr.instances)))
+//console.log(JSON.parse(JSON.stringify(aggr.instances)))
 })
 
 
