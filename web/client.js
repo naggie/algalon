@@ -1,4 +1,7 @@
 var tabs = {}
+var instances = {}
+
+// TODO: dummy instances to help alignment
 
 $(function() {
 	$.ajax({
@@ -11,11 +14,22 @@ $(function() {
 var init = function(data) {
 	for (var i in data.categories)
 		tabs[data.categories[i].name] = new Tab(data.categories[i])
+
+	for (var i in data.instances) {
+		switch(data.instances[i].class) {
+			case 'Httpservice':
+				var instance = new Httpservice(data.instances[i])
+			break;
+			default:
+				console.error('Unknown widget class:',data.instances[i].class)
+		}
+		instances[data.instances[i].id] = instance
+	}
 }
 
+// TODO treat categories as instances the same? or not?
 var Tab = function(initial) {
 	// TODO inheritance from generic Widget class
-	// TODO auto-hide alert numbers
 
 	var parentSelector = '#categories'
 
@@ -50,9 +64,47 @@ var Tab = function(initial) {
 					$('.alerts',template).show().text(val)
 			break;
 			default:
-			console.error('Unknown widget key:',key)
+				console.error('Unknown Tab widget key:',key)
 		}
 	}
 
 	this.set('selected',initial.default)
+}
+
+// Httpservice widget controller/creator
+var Httpservice = function(initial) {
+	// TODO inheritance from generic Widget class
+console.log(initial)
+	var parentSelector = 'section'
+
+	var parent = $(parentSelector)
+	var template = $( $('.Httpservice.template')[0].outerHTML )
+	parent.append(template)
+
+	// stuff which does not need to change
+	// and initial state
+	$('i',template).addClass(initial.icon)
+	$('.name',template).text(initial.name)
+	$('.alerts',template).hide()
+	template.removeClass('template')
+
+	// better system later
+	$('p',template).text(initial.description)
+
+	// stuff which does change
+	this.set =  function(key,val) {
+		switch(key) {
+			case 'healthy':
+				if (!val) {
+					$('.status',template).text('OFFLINE')
+					template.addClass('offline')
+				} else {
+					$('.status',template).text('Online')
+					template.removeClass('offline')
+				}
+			break;
+			default:
+				console.error('Unknown Httpservice widget key:',key)
+		}
+	}
 }
