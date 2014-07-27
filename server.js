@@ -47,6 +47,8 @@ server.use(restify.jsonp())
 
 aggr.on('set',function(id,key,val){ io.emit('set',id,key,val) })
 aggr.on('append',function(id,key,val){ io.emit('append',id,key,val) })
+aggr.on('add',function(id,entity){ io.emit('add',id,entity) })
+aggr.on('health',function(health){ io.emit('health',health) })
 
 server.get('/data',function(req,res,next) {
 	res.header('Cache-Control','no-cache')
