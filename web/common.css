@@ -198,8 +198,12 @@ div.panel.dummy {
 }
 
 div.splash {
-	background:url('darksky-dark-bg.svg') #031010 no-repeat center center;
+	background:url('darksky-dark-bg.svg') #031010 no-repeat center 30%;
 	position:absolute;
 	top:0;right:0;left:0;bottom:0;
 	display:none;
+}
+
+.template {
+	display:none !important;
 }

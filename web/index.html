@@ -6,40 +6,29 @@
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 		<!-- DEV ONLY REFRESH -->
 		<!--<meta http-equiv="refresh" content="1" >-->
+		<script src="jquery-2.1.1.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="client.js"></script>
 	</head>
 	<body>
+		<div id="templates">
+			<li class="tab template">
+				<div class="alerts">0</div>
+				<i class="fa fa-fw"></i>
+				<div class="name"></div>
+			</li>
+			<div class="panel template">
+				<header>
+					<div class="status"></div>
+					<i class="fa fa-3x fa-fw logo"></i>
+					<div class="name"></div>
+				</header>
+				<p>Better information system to follow</p>
+			</div>
+		</div>
 		<nav>
 			<h2>DARKSKY.IO</h2>
 			<ul id="categories" class="buttons">
-				<li class="selected">
-					<div class="alerts">2</div>
-					<i class="fa fa-fw fa-cloud"></i>
-					<div class="name">Applications</div>
-				</li>
-				<li>
-					<i class="fa fa-fw fa-users"></i>
-					<div class="name">Hackers</div>
-				</li>
-				<li>
-					<i class="fa fa-fw fa-flask"></i>
-					<div class="name">Projects</div>
-				</li>
-				<li>
-					<i class="fa fa-fw fa-sitemap"></i>
-					<div class="name">Servers</div>
-				</li>
-				<li>
-					<i class="fa fa-fw fa-gears"></i>
-					<div class="name">Services</div>
-				</li>
-				<li>
-					<i class="fa fa-fw fa-usd"></i>
-					<div class="name">Corporation</div>
-				</li>
-				<li>
-					<i class="fa fa-fw fa-wrench"></i>
-					<div class="name">Integration</div>
-				</li>
 			</ul>
 			<ul>
 				<li class="static">
