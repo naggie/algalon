@@ -25,6 +25,8 @@ var init = function(data) {
 		}
 		instances[data.instances[i].id] = instance
 	}
+
+	addDummies()
 }
 
 // TODO treat categories as instances the same? or not?
@@ -107,4 +109,14 @@ console.log(initial)
 				console.error('Unknown Httpservice widget key:',key)
 		}
 	}
+}
+
+// fake widgets to left-align
+// TODO: do for each section
+var addDummies = function() {
+	var dummy = $($('section > *')[0].outerHTML)
+	dummy.addClass('dummy').empty()
+
+	for (var i=0;i<4;i++)
+		$('section').append(dummy)
 }
