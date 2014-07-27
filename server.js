@@ -57,7 +57,7 @@ server.get('/data',function(req,res,next) {
 		name        : manifest.name,
 		slogan      : manifest.slogan,
 		description : manifest.description,
-		states      : aggr.instances,
+		instances   : aggr.instances,
 		health      : aggr.health, // %, also listen for health event
 	})
 //console.log(JSON.parse(JSON.stringify(aggr.instances)))
