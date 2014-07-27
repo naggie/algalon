@@ -1,8 +1,8 @@
-# DARKSKY ALGALON CONFIGURATION FILE
+# DARKSKY ALGALON MANIFEST FILE
 #
 # Algalon, a portal with CI.
 #
-# TODO: configurable palette
+# TODO: configurable colour palette
 
 # Some metadata about the company
 name        : DARKSKY.IO
@@ -24,6 +24,7 @@ categories:
       - name     : Applications
         synopsis : "User-level application services"
         icon     : fa-cloud
+        default  : true
 
       - name     : Hackers
         synopsis : "Pathetic humans that serve the great hive mind That is Darksky. All hail Darksky!"
@@ -68,5 +69,5 @@ entities:
 # enumerated from a directory. Not supported yet.
 enumerators:
 
-# hooks into the internal API. EG: to post event messages
+# hooks into the internal API. EG: to post event messages or notify
 hooks:
