@@ -137,6 +137,7 @@ div.panel {
 	display:inline-block;
 	background:#444444;
 	opacity:0.85;
+	vertical-align:top;
 }
 
 div.panel div.status {
