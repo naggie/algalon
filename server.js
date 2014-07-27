@@ -15,34 +15,48 @@
    limitations under the License.
 */
 
+if (process.env.CODEIN) require('node-codein')
+
+var yaml     = require('js-yaml')
+var restify  = require('restify')
+var socketio = require('socket.io')
+var fs       = require('fs')
+var Aggr     = require('./lib/aggregator')
+var aggr     = new Aggr()
+
 var manifest = yaml.safeLoad( fs.readFileSync(__dirname+'/darksky.algalon.yaml', 'utf8') )
 
-var rclient   = redis.createClient()
-var restify   = require('restify')
-var fs        = require('fs')
+aggr.instantiateEntities(manifest.entities)
 
 var server = restify.createServer({
-	name: config.hostname,
+	name: manifest.name,
 	//certificate:'string',
 	//key:'string',
 	//version: '0.0.1'
 })
+
+io = socketio.listen(server)
+
 server.use(restify.acceptParser(server.acceptable))
 server.use(restify.queryParser())
 server.use(restify.bodyParser({
 	// req.body is then JSON content
 	mapParams : false,
-	uploadDir : config.tmp_dir,
 }))
 server.use(restify.jsonp())
 
 
 server.get('/data',function(req,res,next) {
 	res.header('Cache-Control','no-cache')
-	database.serverstats(function(err,stats) {
-		if (err) return res.send(500,err)
-		res.send(200,stats)
+	res.send(200,{
+		categories  : manifest.categories,
+		name        : manifest.name,
+		slogan      : manifest.slogan,
+		description : manifest.description,
+		states      : aggr.states,
+		health      : aggr.health, // %, also listen for health event
 	})
+//console.log(JSON.parse(JSON.stringify(aggr.states)))
 })
 
 
@@ -55,7 +69,7 @@ server.get(/.+/,restify.serveStatic({
 }))
 
 
-server.listen(config.port,config.listen, function () {
+server.listen(process.env.PORT || manifest.port,manifest.listen || 80, function () {
 	console.log('alagalon: %s listening at %s', server.name, server.url)
 })
 
