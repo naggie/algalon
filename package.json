@@ -1,0 +1,26 @@
+{
+  "name": "algalon",
+  "version": "0.0.0",
+  "description": "A Web Portal with CI",
+  "main": "server.js",
+  "dependencies": {
+    "js-yaml": "^3.1.0",
+    "restify": "^2.8.1",
+    "socket.io": "^1.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/naggie/algalon.git"
+  },
+  "author": "Callan Bryant <callan.bryant@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naggie/algalon/issues"
+  },
+  "homepage": "https://github.com/naggie/algalon"
+}
