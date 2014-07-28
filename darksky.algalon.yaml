@@ -77,7 +77,6 @@ entities:
           powered_by_url  : http://gitlab.org/
           powered_by_name : Gitlab
 
-
         - name            : Usenet
           category        : Services
           class           : Httpservice
@@ -116,27 +115,27 @@ entities:
 
         - name            : dsdrop
           category        : services
-          class           : httpservice
+          class           : Httpservice
           url             : http://dspa.darksky.io/
-          description     : discussion with the darksky community
+          description     : One-click file sharing
           icon            : fa-download
           powered_by_url  : https://github.com/naggie/dspa
           powered_by_name : dsdrop
 
         - name            : Vosbox
           category        : services
-          class           : httpservice
+          class           : Httpservice
           url             : http://music.darksky.io/
-          description     : discussion with the darksky community
+          description     : Music streaming from a massive collection of absolute GARBAGE
           icon            : fa-music
-          powered_by_url  : https://github.com/naggie/vosboc
+          powered_by_url  : https://github.com/naggie/vosbox
           powered_by_name : crates
 
         - name            : email
           category        : services
-          class           : httpservice
+          class           : Httpservice
           url             : http://mail.darksky.io/
-          description     : discussion with the darksky community
+          description     : NSA-mail for emailing people
           icon            : fa-envelope-o
           powered_by_url  : http://www.google.com/enterprise/apps/business/
           powered_by_name : Google Apps (NSA)
