@@ -76,7 +76,7 @@ var Tab = function(initial) {
 // Httpservice widget controller/creator
 var Httpservice = function(initial) {
 	// TODO inheritance from generic Widget class
-console.log(initial)
+
 	var parentSelector = 'section'
 
 	var parent = $(parentSelector)

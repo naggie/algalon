@@ -68,6 +68,78 @@ entities:
           powered_by_url  : http://discourse.org/
           powered_by_name : Discourse
 
+        - name            : Labs
+          category        : Services
+          class           : Httpservice
+          url             : https://labs.darksky.io/
+          description     : Darksky project hosting
+          icon            : fa-flask
+          powered_by_url  : http://gitlab.org/
+          powered_by_name : Gitlab
+
+
+        - name            : Usenet
+          category        : Services
+          class           : Httpservice
+          url             : http://usenet.darksky.io/
+          description     : Binary newsreader with subscription to astraweb
+          icon            : fa-hdd-o
+          powered_by_url  : http://sabnzbdplus.org
+          powered_by_name : Sabnzbdplus
+
+        - name            : Torrents
+          category        : Services
+          class           : Httpservice
+          url             : http://torrents.darksky.io/
+          description     : Shared web torrent client
+          icon            : fa-comments-o
+          powered_by_url  : http://discourse.org/
+          powered_by_name : Discourse
+
+        - name            : Depot
+          category        : Services
+          class           : Httpservice
+          url             : http://depot.darksky.io/
+          description     : Dump HTTP server for downloads from Usenet/torrents. To be unified.
+          icon            : fa-box
+          powered_by_url  : http://nginx.org/
+          powered_by_name : nginx
+
+        - name            : DSPA
+          category        : Services
+          class           : Httpservice
+          url             : http://dspa.darksky.io/
+          description     : Service announcement system
+          icon            : fa-volume-up
+          powered_by_url  : https://github.com/naggie/DSPA
+          powered_by_name : DSPA
+
+        - name            : dsdrop
+          category        : services
+          class           : httpservice
+          url             : http://dspa.darksky.io/
+          description     : discussion with the darksky community
+          icon            : fa-download
+          powered_by_url  : https://github.com/naggie/dspa
+          powered_by_name : dsdrop
+
+        - name            : Vosbox
+          category        : services
+          class           : httpservice
+          url             : http://music.darksky.io/
+          description     : discussion with the darksky community
+          icon            : fa-music
+          powered_by_url  : https://github.com/naggie/vosboc
+          powered_by_name : crates
+
+        - name            : email
+          category        : services
+          class           : httpservice
+          url             : http://mail.darksky.io/
+          description     : discussion with the darksky community
+          icon            : fa-envelope-o
+          powered_by_url  : http://www.google.com/enterprise/apps/business/
+          powered_by_name : Google Apps (NSA)
 
 # Enumerators create entities automatically at server start and periodically.
 # For dynamic targets which may change, such as projects, hosts, humans
