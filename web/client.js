@@ -85,7 +85,7 @@ var Httpservice = function(initial) {
 
 	// stuff which does not need to change
 	// and initial state
-	$('i',template).addClass(initial.icon)
+	$('i',template).addClass(initial.icon || 'fa-cubes')
 	$('.name',template).text(initial.name)
 	$('.alerts',template).hide()
 	template.removeClass('template')
