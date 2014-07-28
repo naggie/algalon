@@ -73,7 +73,7 @@ server.get(/.+/,restify.serveStatic({
 }))
 
 
-server.listen(process.env.PORT || manifest.port,manifest.listen || 80, function () {
+server.listen(process.env.PORT || manifest.port || 80,manifest.listen || '0.0.0.0', function () {
 	console.log('alagalon: %s listening at %s', server.name, server.url)
 })
 
