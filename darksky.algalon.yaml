@@ -101,7 +101,7 @@ entities:
           class           : Httpservice
           url             : http://depot.darksky.io/
           description     : Dump HTTP server for downloads from Usenet/torrents. To be unified.
-          icon            : fa-box
+          icon            : fa-hdd-o
           powered_by_url  : http://nginx.org/
           powered_by_name : nginx
 
