@@ -1,7 +1,7 @@
 {
   "name": "algalon",
   "version": "0.0.0",
-  "description": "A Web Portal with CI",
+  "description": "A Web Portal with monitoring",
   "main": "server.js",
   "dependencies": {
     "js-yaml": "^3.1.0",
