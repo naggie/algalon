@@ -109,16 +109,19 @@ var Httpservice = function(initial) {
 	// better system later
 	$('p',template).text(initial.description)
 
+	if (typeof initial.healthy !== 'undefined')
+		this.set('healthy',initial.healthy)
+
 	// stuff which does change
 	this.set =  function(key,val) {
 		switch(key) {
 			case 'healthy':
 				if (!val) {
-					$('.status',template).text('OFFLINE')
-					template.addClass('offline')
+					//$('.status',template).text('OFFLINE')
+					template.removeClass('pass').addClass('fail')
 				} else {
-					$('.status',template).text('Online')
-					template.removeClass('offline')
+					//$('.status',template).text('ONLINE')
+					template.removeClass('fail').addClass('pass')
 				}
 			break;
 			default:
