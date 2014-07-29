@@ -11,22 +11,38 @@ $(function() {
 
 })
 
+var socket = io.connect(undefined,{
+	//"auto connect":false,
+	'reconnection limit': 20000, // try at least every 20 seconds
+	'max reconnection attempts': Infinity
+})
+socket.on('connect',function() { console.log('Connected to Algalon') })
+socket.on('disconnect',function() { console.log('Lost connection to Algalon') })
+socket.on('set',function(id,key,val){ instances[id].set(key,val) })
+socket.on('append',function(id,key,val){ instances[id].append(key,val) })
+socket.on('destroy',function(id){ instances[id].destroy(key,val) })
+socket.on('create',function(id,entity){ createInstance(entity) })
+
+
 var init = function(data) {
 	for (var i in data.categories)
 		tabs[data.categories[i].name] = new Tab(data.categories[i])
 
-	for (var i in data.instances) {
-		switch(data.instances[i].class) {
-			case 'Httpservice':
-				var instance = new Httpservice(data.instances[i])
-			break;
-			default:
-				console.error('Unknown widget class:',data.instances[i].class)
-		}
-		instances[data.instances[i].id] = instance
-	}
+	for (var i in data.instances)
+		createInstance(data.instances[i])
 
 	addDummies()
+}
+
+var createInstance = function(initial) {
+	switch(initial.class) {
+		case 'Httpservice':
+			var instance = new Httpservice(initial)
+		break;
+		default:
+			console.error('Unknown widget class:',initial.class)
+	}
+	instances[initial.id] = instance
 }
 
 // TODO treat categories as instances the same? or not?
