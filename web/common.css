@@ -140,7 +140,15 @@ div.panel {
 	vertical-align:top;
 	border:2px solid #444444;
 	min-height:200px;
+	border-top:5px solid #444444;
+}
+
+div.panel.pass {
 	border-top:5px solid #5aac5e;
+}
+
+div.panel.fail {
+	border-top:5px solid red;
 }
 
 div.panel div.status {

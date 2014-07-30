@@ -25,11 +25,20 @@ socket.on('create',function(id,entity){ createInstance(entity) })
 
 
 var init = function(data) {
-	for (var i in data.categories)
-		tabs[data.categories[i].name] = new Tab(data.categories[i])
+	// fade in, and extra delay per tab
+	var fade = 300
+	for (var i in data.categories) {
+		var cat = data.categories[i]
+		cat.fade = fade += 300
+		tabs[cat.name] = new Tab(cat)
+	}
 
-	for (var i in data.instances)
-		createInstance(data.instances[i])
+	var fade = 300
+	for (var i in data.instances) {
+		var initial = data.instances[i]
+		initial.fade = fade += 300
+		createInstance(initial)
+	}
 
 	addDummies()
 }
@@ -54,6 +63,9 @@ var Tab = function(initial) {
 	var parent = $(parentSelector)
 	var template = $( $('.tab.template')[0].outerHTML )
 	parent.append(template)
+
+	if (initial.fade)
+		template.hide().stop(1).fadeIn(initial.fade)
 
 	// stuff which does not need to change
 	// and initial state
@@ -99,6 +111,9 @@ var Httpservice = function(initial) {
 	var template = $( $('.Httpservice.template')[0].outerHTML )
 	parent.append(template)
 
+	if (initial.fade)
+		template.css('opacity',0).stop(1).animate({'opacity':1},initial.fade)
+
 	// stuff which does not need to change
 	// and initial state
 	$('i',template).addClass(initial.icon || 'fa-cubes')
@@ -109,16 +124,19 @@ var Httpservice = function(initial) {
 	// better system later
 	$('p',template).text(initial.description)
 
+	if (typeof initial.healthy !== 'undefined')
+		this.set('healthy',initial.healthy)
+
 	// stuff which does change
 	this.set =  function(key,val) {
 		switch(key) {
 			case 'healthy':
 				if (!val) {
-					$('.status',template).text('OFFLINE')
-					template.addClass('offline')
+					//$('.status',template).text('OFFLINE')
+					template.removeClass('pass').addClass('fail')
 				} else {
-					$('.status',template).text('Online')
-					template.removeClass('offline')
+					//$('.status',template).text('ONLINE')
+					template.removeClass('fail').addClass('pass')
 				}
 			break;
 			default:
