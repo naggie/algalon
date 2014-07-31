@@ -21,18 +21,19 @@ socket.on('connect',function() { console.log('Connected to Algalon') })
 socket.on('disconnect',function() { console.log('Lost connection to Algalon! TODO: resync') })
 
 var init = function(data) {
+	console.log(data)
 	for (var i in data.categories)
 		tabs[data.categories[i].name] = new Tab(data.categories[i])
 
-	for (var i in data.instances)
-		instances[data.instances[i].id] = createInstance(data.instances[i])
+	for (var i in data.states)
+		instances[data.states[i].id] = createInstance(data.states[i])
 
 	addDummies()
 
-	socket.on('set',function(id,key,val){ instances[id] && instances[id].set(key,val) })
-	socket.on('append',function(id,key,val){ instances[id] && instances[id].append(key,val) })
-	socket.on('destroy',function(id){ instances[id] && instances[id].destroy(key,val) })
-	socket.on('create',function(id,entity){ instances[id] && createInstance(entity) })
+	socket.on('set',function(id,key,val){ states[id] && states[id].set(key,val) })
+	socket.on('append',function(id,key,val){ states[id] && states[id].append(key,val) })
+	socket.on('destroy',function(id){ states[id] && states[id].destroy(key,val) })
+	socket.on('create',function(id,entity){ states[id] && createInstance(entity) })
 
 }
 
