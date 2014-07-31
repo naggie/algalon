@@ -2,9 +2,10 @@
   "name": "algalon",
   "version": "0.0.0",
   "description": "A Web Portal with monitoring",
-  "main": "server.js",
+  "main": "algalon-server.js",
   "dependencies": {
     "js-yaml": "^3.1.0",
+    "request": "^2.39.0",
     "restify": "^2.8.1",
     "socket.io": "^1.0.6"
   },
