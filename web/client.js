@@ -16,22 +16,24 @@ var socket = io.connect(undefined,{
 	'reconnection limit': 20000, // try at least every 20 seconds
 	'max reconnection attempts': Infinity
 })
-socket.on('connect',function() { console.log('Connected to Algalon') })
-socket.on('disconnect',function() { console.log('Lost connection to Algalon') })
-socket.on('set',function(id,key,val){ instances[id].set(key,val) })
-socket.on('append',function(id,key,val){ instances[id].append(key,val) })
-socket.on('destroy',function(id){ instances[id].destroy(key,val) })
-socket.on('create',function(id,entity){ createInstance(entity) })
 
+socket.on('connect',function() { console.log('Connected to Algalon') })
+socket.on('disconnect',function() { console.log('Lost connection to Algalon! TODO: resync') })
 
 var init = function(data) {
 	for (var i in data.categories)
 		tabs[data.categories[i].name] = new Tab(data.categories[i])
 
 	for (var i in data.instances)
-		createInstance(data.instances[i])
+		instances[data.instances[i].id] = createInstance(data.instances[i])
 
 	addDummies()
+
+	socket.on('set',function(id,key,val){ instances[id].set(key,val) })
+	socket.on('append',function(id,key,val){ instances[id].append(key,val) })
+	socket.on('destroy',function(id){ instances[id].destroy(key,val) })
+	socket.on('create',function(id,entity){ createInstance(entity) })
+
 }
 
 var createInstance = function(initial) {
@@ -42,7 +44,7 @@ var createInstance = function(initial) {
 		default:
 			console.error('Unknown widget class:',initial.class)
 	}
-	instances[initial.id] = instance
+	return instance
 }
 
 // TODO treat categories as instances the same? or not?
@@ -86,7 +88,7 @@ var Tab = function(initial) {
 		}
 	}
 
-	this.set('selected',initial.default)
+	this.set('selected',!!initial.default)
 }
 
 // Httpservice widget controller/creator
@@ -109,9 +111,6 @@ var Httpservice = function(initial) {
 	// better system later
 	$('p',template).text(initial.description)
 
-	if (typeof initial.healthy !== 'undefined')
-		this.set('healthy',initial.healthy)
-
 	// stuff which does change
 	this.set =  function(key,val) {
 		switch(key) {
@@ -128,6 +127,9 @@ var Httpservice = function(initial) {
 				console.error('Unknown Httpservice widget key:',key)
 		}
 	}
+
+	if (typeof initial.healthy !== 'undefined')
+		this.set('healthy',initial.healthy)
 }
 
 // fake widgets to left-align

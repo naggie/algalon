@@ -25,7 +25,7 @@ listen : 0.0.0.0
 # aggregate health.
 categories:
 
-      - name     : Applications
+      - name     : SaaS
         description : "User-level application services"
         icon     : fa-cloud
         default  : true
