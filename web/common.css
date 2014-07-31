@@ -139,7 +139,7 @@ div.panel {
 	opacity:0.8;
 	vertical-align:top;
 	border:2px solid #444444;
-	min-height:200px;
+	min-height:190px;
 	border-top:5px solid #444444;
 }
 
@@ -180,6 +180,7 @@ div.panel header {
 div.panel p {
 	margin:6px;
 	opacity:0.7;
+	font-size:0.8em;
 }
 
 div.offline {
