@@ -61,7 +61,7 @@ entities:
 
         - name            : Boards
           category        : Services
-          class           : Httpservice
+          class           : Saas
           url             : https://boards.darksky.io/
           description     : Discussion with the Darksky community
           icon            : fa-comments-o
@@ -70,7 +70,7 @@ entities:
 
         - name            : Labs
           category        : Services
-          class           : Httpservice
+          class           : Saas
           url             : https://labs.darksky.io/
           description     : Darksky project hosting
           icon            : fa-flask
@@ -79,7 +79,7 @@ entities:
 
         - name            : Usenet
           category        : Services
-          class           : Httpservice
+          class           : Saas
           url             : http://usenet.darksky.io/
           description     : Binary newsreader with subscription to astraweb
           icon            : fa-hdd-o
@@ -88,7 +88,7 @@ entities:
 
         - name            : Torrents
           category        : Services
-          class           : Httpservice
+          class           : Saas
           url             : http://torrents.darksky.io/
           description     : Shared web torrent client
           icon            : fa-comments-o
@@ -97,7 +97,7 @@ entities:
 
         - name            : Depot
           category        : Services
-          class           : Httpservice
+          class           : Saas
           url             : http://depot.darksky.io/
           description     : Dump HTTP server for downloads from Usenet/torrents. To be unified.
           icon            : fa-hdd-o
@@ -106,7 +106,7 @@ entities:
 
         - name            : DSPA
           category        : Services
-          class           : Httpservice
+          class           : Saas
           url             : http://dspa.darksky.io/
           description     : Service announcement system
           icon            : fa-volume-up
@@ -115,7 +115,7 @@ entities:
 
         - name            : dsdrop
           category        : services
-          class           : Httpservice
+          class           : Saas
           url             : http://dspa.darksky.io/
           description     : One-click file sharing
           icon            : fa-download
@@ -124,7 +124,7 @@ entities:
 
         - name            : Vosbox
           category        : services
-          class           : Httpservice
+          class           : Saas
           url             : http://music.darksky.io/
           description     : Music streaming from a massive collection of absolute GARBAGE
           icon            : fa-music
@@ -133,7 +133,7 @@ entities:
 
         - name            : email
           category        : services
-          class           : Httpservice
+          class           : Saas
           url             : http://mail.darksky.io/
           description     : NSA-mail for emailing people
           icon            : fa-envelope-o
