@@ -39,8 +39,8 @@ var init = function(data) {
 
 var createInstance = function(initial) {
 	switch(initial.class) {
-		case 'Httpservice':
-			var instance = new Httpservice(initial)
+		case 'Saas':
+			var instance = new Saas(initial)
 		break;
 		default:
 			console.error('Unknown widget class:',initial.class)
@@ -92,14 +92,14 @@ var Tab = function(initial) {
 	this.set('selected',!!initial.default)
 }
 
-// Httpservice widget controller/creator
-var Httpservice = function(initial) {
+// Saas widget controller/creator
+var Saas = function(initial) {
 	// TODO inheritance from generic Widget class
 
 	var parentSelector = 'section'
 
 	var parent = $(parentSelector)
-	var template = $( $('.Httpservice.template')[0].outerHTML )
+	var template = $( $('.Saas.template')[0].outerHTML )
 	parent.append(template)
 
 	// stuff which does not need to change
@@ -125,7 +125,7 @@ var Httpservice = function(initial) {
 				}
 			break;
 			default:
-				console.error('Unknown Httpservice widget key:',key)
+				console.error('Unknown Saas widget key:',key)
 		}
 	}
 
