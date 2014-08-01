@@ -93,6 +93,7 @@ var Tab = function(initial) {
 }
 
 // Saas widget controller/creator
+// static stuff directly, dynamic stuff with .set()
 var Saas = function(initial) {
 	// TODO inheritance from generic Widget class
 
@@ -119,10 +120,15 @@ var Saas = function(initial) {
 				if (!val) {
 					//$('.status',template).text('OFFLINE')
 					template.removeClass('pass').addClass('fail')
+					$('.error',template).show()
 				} else {
 					//$('.status',template).text('ONLINE')
 					template.removeClass('fail').addClass('pass')
+					$('.error',template).hide()
 				}
+			break;
+			case 'error':
+				$('.error',template).text(val)
 			break;
 			default:
 				console.error('Unknown Saas widget key:',key)
@@ -131,6 +137,8 @@ var Saas = function(initial) {
 
 	if (typeof initial.healthy !== 'undefined')
 		this.set('healthy',initial.healthy)
+
+	this.set('error',initial.error)
 }
 
 // fake widgets to left-align

@@ -183,6 +183,21 @@ div.panel p {
 	font-size:0.8em;
 }
 
+div.panel div.error {
+	background:red;
+	color:white;
+	padding:5px;
+	font-weight:bold;
+	text-align:center;
+	display:none;
+	font-size:0.8em;
+}
+div.panel div.error:before {
+	content: "\f071";
+	font-family: FontAwesome;
+	margin:5px;
+}
+
 div.offline {
 	margin-top: 5px solid red;
 }
