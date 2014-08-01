@@ -30,10 +30,10 @@ var init = function(data) {
 
 	addDummies()
 
-	socket.on('set',function(id,key,val){ states[id] && states[id].set(key,val) })
-	socket.on('append',function(id,key,val){ states[id] && states[id].append(key,val) })
-	socket.on('destroy',function(id){ states[id] && states[id].destroy(key,val) })
-	socket.on('create',function(id,entity){ states[id] && createInstance(entity) })
+	socket.on('set',function(id,key,val){ instances[id] && instances[id].set(key,val) })
+	socket.on('append',function(id,key,val){ instances[id] && instances[id].append(key,val) })
+	socket.on('destroy',function(id){ instances[id] && instances[id].destroy(key,val) })
+	socket.on('create',function(id,state){ instances[id] && createInstance(state) })
 
 }
 
