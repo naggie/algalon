@@ -21,7 +21,6 @@ socket.on('connect',function() { console.log('Connected to Algalon') })
 socket.on('disconnect',function() { console.log('Lost connection to Algalon! TODO: resync') })
 
 var init = function(data) {
-	console.log(data)
 	for (var i in data.categories)
 		tabs[data.categories[i].name] = new Tab(data.categories[i])
 
@@ -112,6 +111,10 @@ var Saas = function(initial) {
 
 	// better system later
 	$('p',template).text(initial.description)
+
+	template.on('click',function() {
+		window.open(initial.url)
+	})
 
 	// stuff which does change
 	this.set =  function(key,val) {
