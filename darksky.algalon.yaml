@@ -60,7 +60,7 @@ categories:
 entities:
 
         - name            : Boards
-          category        : Services
+          category        : Saas
           class           : Saas
           url             : https://boards.darksky.io/
           description     : Discussion with the Darksky community
@@ -69,7 +69,7 @@ entities:
           powered_by_name : Discourse
 
         - name            : Labs
-          category        : Services
+          category        : Saas
           class           : Saas
           url             : https://labs.darksky.io/
           description     : Darksky project hosting
@@ -78,7 +78,7 @@ entities:
           powered_by_name : Gitlab
 
         - name            : Usenet
-          category        : Services
+          category        : Saas
           class           : Saas
           url             : http://usenet.darksky.io/
           description     : Binary newsreader with subscription to astraweb
@@ -87,7 +87,7 @@ entities:
           powered_by_name : Sabnzbdplus
 
         - name            : Torrents
-          category        : Services
+          category        : Saas
           class           : Saas
           url             : http://torrents.darksky.io/
           description     : Shared web torrent client
@@ -96,7 +96,7 @@ entities:
           powered_by_name : Discourse
 
         - name            : Depot
-          category        : Services
+          category        : Saas
           class           : Saas
           url             : http://depot.darksky.io/
           description     : Dump HTTP server for downloads from Usenet/torrents. To be unified.
@@ -105,7 +105,7 @@ entities:
           powered_by_name : nginx
 
         - name            : DSPA
-          category        : Services
+          category        : Saas
           class           : Saas
           url             : http://dspa.darksky.io/
           description     : Service announcement system
