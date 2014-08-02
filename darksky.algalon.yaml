@@ -34,29 +34,30 @@ categories:
         description : "Pathetic humans that serve the great hive mind That is Darksky. All hail Darksky!"
         icon     : fa-users
 
-      - name     : Services
-        description : "Infrastructure support network services"
-        icon     : fa-gears
-
-      - name     : Servers
-        description : "Dedicated servers, continental and residential"
-        icon     : fa-sitemap
-
-      - name     : Projects
-        description : "All active Darksky projects and statistics"
-        icon     : fa-flask
-
-      - name     : Corporation
-        description : "Tracking Darksky stock price and news"
-        icon     : fa-usd
-
-      - name     : Batch jobs
-        description : "Garbage collection, synchronisation, etc"
-        icon     : fa-wrench
+#      - name     : Services
+#        description : "Infrastructure support network services"
+#        icon     : fa-gears
+#
+#      - name     : Servers
+#        description : "Dedicated servers, continental and residential"
+#        icon     : fa-sitemap
+#
+#      - name     : Projects
+#        description : "All active Darksky projects and statistics"
+#        icon     : fa-flask
+#
+#      - name     : Corporation
+#        description : "Tracking Darksky stock price and news"
+#        icon     : fa-usd
+#
+#      - name     : Batch jobs
+#        description : "Garbage collection, synchronisation, etc"
+#        icon     : fa-wrench
 
 
 # Entities are statically defined representations of something but may
 # dynamically test themselves.
+# See lib/entities for class documentation
 entities:
 # Sass
         - name            : Boards
@@ -65,6 +66,7 @@ entities:
           url             : https://boards.darksky.io/
           description     : Discussion with the Darksky community
           icon            : fa-comments-o
+          verification    : "everything there is to know about Darksky, please visit"
           powered_by_url  : http://discourse.org/
           powered_by_name : Discourse
 
@@ -74,6 +76,7 @@ entities:
           url             : https://labs.darksky.io/
           description     : Darksky project hosting
           icon            : fa-flask
+          verification    : "About GitLab"
           powered_by_url  : http://gitlab.org/
           powered_by_name : Gitlab
 
@@ -83,6 +86,7 @@ entities:
           url             : http://usenet.darksky.io/
           description     : Binary newsreader with subscription to astraweb
           icon            : fa-hdd-o
+          verification    : "SABnzbd comes with ABSOLUTELY NO WARRANTY."
           powered_by_url  : http://sabnzbdplus.org
           powered_by_name : Sabnzbdplus
 
@@ -91,6 +95,7 @@ entities:
           class           : Saas
           url             : http://torrents.darksky.io/
           description     : Shared web torrent client
+          verification    : "rTorrent"
           icon            : fa-comments-o
           powered_by_url  : http://discourse.org/
           powered_by_name : Discourse
@@ -101,6 +106,7 @@ entities:
           url             : http://depot.darksky.io/
           description     : Dump HTTP server for downloads from Usenet/torrents. To be unified.
           icon            : fa-hdd-o
+          verification    : "Apache.*Server"
           powered_by_url  : http://nginx.org/
           powered_by_name : nginx
 
@@ -110,6 +116,7 @@ entities:
           url             : http://dspa.darksky.io/
           description     : Service announcement system
           icon            : fa-volume-up
+          verification    : "DSPA"
           powered_by_url  : https://github.com/naggie/DSPA
           powered_by_name : DSPA
 
@@ -119,6 +126,7 @@ entities:
           url             : http://drop.darksky.io/
           description     : One-click file sharing
           icon            : fa-download
+          verification    : "Enterprise-ready instant file sharing"
           powered_by_url  : https://gitlab.com/naggie/dsdrop
           powered_by_name : dsdrop
 
@@ -128,6 +136,7 @@ entities:
           url             : http://music.darksky.io/
           description     : Music streaming from a massive collection of absolute GARBAGE
           icon            : fa-music
+          verification    : "This file is part of Vosbox"
           powered_by_url  : https://github.com/naggie/vosbox
           powered_by_name : crates
 
@@ -137,6 +146,7 @@ entities:
           url             : http://mail.darksky.io/
           description     : NSA-mail for emailing people
           icon            : fa-envelope-o
+          verification    : 'Google Accounts'
           powered_by_url  : http://www.google.com/enterprise/apps/business/
           powered_by_name : Google Apps (NSA)
 
