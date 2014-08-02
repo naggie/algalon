@@ -8,7 +8,6 @@ $(function() {
 		url      : 'data',
 		success  : init,
 	})
-
 })
 
 var socket = io.connect(undefined,{
@@ -21,8 +20,9 @@ socket.on('connect',function() { console.log('Connected to Algalon') })
 socket.on('disconnect',function() { console.log('Lost connection to Algalon! TODO: resync') })
 
 var init = function(data) {
+	var parent = $('#categories')
 	for (var i in data.categories)
-		tabs[data.categories[i].name] = new Tab(data.categories[i])
+		tabs[data.categories[i].name] = new Tab(parent,data.categories[i])
 
 	for (var i in data.states)
 		instances[data.states[i].id] = createInstance(data.states[i])
@@ -36,46 +36,45 @@ var init = function(data) {
 
 }
 
-var createInstance = function(initial) {
-	switch(initial.class) {
+var createInstance = function(state) {
+	//var parent = $('#cat-'+state.class)
+	var parent = $('section')
+
+	switch(state.class) {
 		case 'Saas':
-			var instance = new Saas(initial)
+			var instance = new Saas(parent,state)
 		break;
 		case 'Hacker':
-			var instance = new Hacker(initial)
+			var instance = new Hacker(parent,state)
 		break;
 		default:
-			console.error('Unknown widget class:',initial.class)
+			console.error('Unknown widget class:',state.class)
 	}
 	return instance
 }
 
 // TODO treat categories as instances the same? or not?
-var Tab = function(initial) {
+var Tab = function(parent,state) {
 	// TODO inheritance from generic Widget class
-
-	var parentSelector = '#categories'
-
-	var parent = $(parentSelector)
 	var template = $( $('.tab.template')[0].outerHTML )
 	parent.append(template)
 
 	// stuff which does not need to change
 	// and initial state
-	$('i',template).addClass(initial.icon)
-	$('.name',template).text(initial.name)
+	$('i',template).addClass(state.icon)
+	$('.name',template).text(state.name)
 	$('.alerts',template).hide()
 	template.removeClass('template')
 
 	// better system later
-	template.attr('title',initial.description)
+	template.attr('title',state.description)
 
 	// stuff which does change
 	this.set =  function(key,val) {
 		switch(key) {
 			case 'selected':
 				if (val) {
-					$(parentSelector+' .tab').removeClass('selected')
+					$('.tab',parent).removeClass('selected')
 					template.addClass('selected')
 				} else
 					template.removeClass('selected')
@@ -91,32 +90,28 @@ var Tab = function(initial) {
 		}
 	}
 
-	this.set('selected',!!initial.default)
+	this.set('selected',!!state.default)
 }
 
 // Saas widget controller/creator
 // static stuff directly, dynamic stuff with .set()
-var Saas = function(initial) {
+var Saas = function(parent,state) {
 	// TODO inheritance from generic Widget class
-
-	var parentSelector = 'section'
-
-	var parent = $(parentSelector)
 	var template = $( $('.Saas.template')[0].outerHTML )
 	parent.append(template)
 
 	// stuff which does not need to change
 	// and initial state
-	$('i',template).addClass(initial.icon || 'fa-cubes')
-	$('.name',template).text(initial.name)
+	$('i',template).addClass(state.icon || 'fa-cubes')
+	$('.name',template).text(state.name)
 	$('.alerts',template).hide()
 	template.removeClass('template')
 
 	// better system later
-	$('p',template).text(initial.description)
+	$('p',template).text(state.description)
 
 	template.on('click',function() {
-		window.open(initial.url)
+		window.open(state.url)
 	})
 
 	// stuff which does change
@@ -141,10 +136,10 @@ var Saas = function(initial) {
 		}
 	}
 
-	if (typeof initial.healthy !== 'undefined')
-		this.set('healthy',initial.healthy)
+	if (typeof state.healthy !== 'undefined')
+		this.set('healthy',state.healthy)
 
-	this.set('error',initial.error)
+	this.set('error',state.error)
 }
 
 // fake widgets to left-align
@@ -159,19 +154,15 @@ var addDummies = function() {
 
 // Saas widget controller/creator
 // static stuff directly, dynamic stuff with .set()
-var Hacker = function(initial) {
+var Hacker = function(parent,state) {
 	// TODO inheritance from generic Widget class
-
-	var parentSelector = 'section'
-
-	var parent = $(parentSelector)
 	var template = $( $('.Hacker.template')[0].outerHTML )
 	parent.append(template)
 	template.removeClass('template')
 
-	$('img',template).attr('src',initial.imgurl)
-	$('.username',template).text(initial.username)
-	$('.name',template).text(initial.name)
+	$('img',template).attr('src',state.imgurl)
+	$('.username',template).text(state.username)
+	$('.name',template).text(state.name)
 
-	template.click(function() { window.open(initial.profile) })
+	template.click(function() { window.open(state.profile) })
 }
