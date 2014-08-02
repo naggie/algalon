@@ -212,6 +212,7 @@ div.panel.dummy {
 	margin-top:8px;
 	border:1px solid #222222;
 	background:#a02c2c;
+	display:none;
 }
 
 .health > .bar {

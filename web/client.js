@@ -1,7 +1,10 @@
 var tabs = {}
 var instances = {}
+var sections = {}
+var entityWidgets = {}
 
 // TODO: dummy instances to help alignment
+// // TODO assertions for parent selector
 
 $(function() {
 	$.ajax({
@@ -20,9 +23,18 @@ socket.on('connect',function() { console.log('Connected to Algalon') })
 socket.on('disconnect',function() { console.log('Lost connection to Algalon! TODO: resync') })
 
 var init = function(data) {
-	var parent = $('#categories')
-	for (var i in data.categories)
-		tabs[data.categories[i].name] = new Tab(parent,data.categories[i])
+	var cats = $('#categories')
+	var article = $('<article />')
+
+	for (var i in data.categories) {
+		var cat = data.categories[i]
+		var tab = new Tab(cats,cat)
+		var section = new Section(article)
+		if (cat.default) section.select()
+		tab.click = section.select
+		tabs[cat.name] = tab
+		sections[cat.name] = section
+	}
 
 	for (var i in data.states)
 		instances[data.states[i].id] = createInstance(data.states[i])
@@ -37,19 +49,17 @@ var init = function(data) {
 }
 
 var createInstance = function(state) {
-	//var parent = $('#cat-'+state.class)
-	var parent = $('section')
+	if(!tabs[state.category])
+		return console.error('undefined category:',state.category)
 
-	switch(state.class) {
-		case 'Saas':
-			var instance = new Saas(parent,state)
-		break;
-		case 'Hacker':
-			var instance = new Hacker(parent,state)
-		break;
-		default:
-			console.error('Unknown widget class:',state.class)
-	}
+	var parent = sections[state.category].jqo
+
+	if(!entityWidgets[state.class])
+		return console.error('Unknown Widget class:',state.class)
+
+	var Class = entityWidgets[state.class]
+	var instance = new Class(parent,state)
+
 	return instance
 }
 
@@ -95,7 +105,7 @@ var Tab = function(parent,state) {
 
 // Saas widget controller/creator
 // static stuff directly, dynamic stuff with .set()
-var Saas = function(parent,state) {
+entityWidgets['Saas'] = function(parent,state) {
 	// TODO inheritance from generic Widget class
 	var template = $( $('.Saas.template')[0].outerHTML )
 	parent.append(template)
@@ -145,6 +155,7 @@ var Saas = function(parent,state) {
 // fake widgets to left-align
 // TODO: do for each section
 var addDummies = function() {
+	return console.log('TODO: dummies')
 	var dummy = $($('section > *')[0].outerHTML)
 	dummy.addClass('dummy').empty()
 
@@ -154,7 +165,7 @@ var addDummies = function() {
 
 // Saas widget controller/creator
 // static stuff directly, dynamic stuff with .set()
-var Hacker = function(parent,state) {
+entityWidgets['Hacker'] = function(parent,state) {
 	// TODO inheritance from generic Widget class
 	var template = $( $('.Hacker.template')[0].outerHTML )
 	parent.append(template)
@@ -165,4 +176,16 @@ var Hacker = function(parent,state) {
 	$('.name',template).text(state.name)
 
 	template.click(function() { window.open(state.profile) })
+}
+
+var Section = function(parent) {
+	var template = $('<section />')
+	parent.append(template)
+	template.hide()
+	this.jqo = template
+
+	this.select = function() {
+		$('section',parent).hide()
+		template.show()
+	}
 }
