@@ -235,3 +235,21 @@ div.splash {
 .template {
 	display:none !important;
 }
+
+.Hacker {
+	width:180px;
+	margin:30px;
+	text-align:center;
+	display:inline-block;
+	vertical-align:top;
+	min-height:190px;
+}
+
+.Hacker img {
+	width:160;
+	height:160;
+}
+
+.Hacker h2,p {
+	margin:10px;
+}
