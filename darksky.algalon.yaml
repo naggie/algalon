@@ -58,7 +58,7 @@ categories:
 # Entities are statically defined representations of something but may
 # dynamically test themselves.
 entities:
-
+# Sass
         - name            : Boards
           category        : Saas
           class           : Saas
@@ -139,6 +139,14 @@ entities:
           icon            : fa-envelope-o
           powered_by_url  : http://www.google.com/enterprise/apps/business/
           powered_by_name : Google Apps (NSA)
+
+# Hackers
+        - name            : 'Callan Bryant'
+          class           : Hacker
+          category        : Hackers
+          username        : naggie
+          email           : callan.bryant@gmail.com
+          profile         : https://boards.darksky.io/users/naggie
 
 # Enumerators create entities automatically at server start and periodically.
 # For dynamic targets which may change, such as projects, hosts, humans

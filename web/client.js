@@ -41,6 +41,9 @@ var createInstance = function(initial) {
 		case 'Saas':
 			var instance = new Saas(initial)
 		break;
+		case 'Hacker':
+			var instance = new Hacker(initial)
+		break;
 		default:
 			console.error('Unknown widget class:',initial.class)
 	}
@@ -152,4 +155,23 @@ var addDummies = function() {
 
 	for (var i=0;i<4;i++)
 		$('section').append(dummy)
+}
+
+// Saas widget controller/creator
+// static stuff directly, dynamic stuff with .set()
+var Hacker = function(initial) {
+	// TODO inheritance from generic Widget class
+
+	var parentSelector = 'section'
+
+	var parent = $(parentSelector)
+	var template = $( $('.Hacker.template')[0].outerHTML )
+	parent.append(template)
+	template.removeClass('template')
+
+	$('img',template).attr('src',initial.imgurl)
+	$('h2',template).text(initial.username)
+	$('p',template).text(initial.name)
+
+	template.click(function() { window.open(initial.profile) })
 }
