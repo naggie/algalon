@@ -116,10 +116,10 @@ entities:
         - name            : dsdrop
           category        : services
           class           : Saas
-          url             : http://dspa.darksky.io/
+          url             : http://drop.darksky.io/
           description     : One-click file sharing
           icon            : fa-download
-          powered_by_url  : https://github.com/naggie/dspa
+          powered_by_url  : https://gitlab.com/naggie/dsdrop
           powered_by_name : dsdrop
 
         - name            : Vosbox
