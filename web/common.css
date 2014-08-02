@@ -237,12 +237,13 @@ div.splash {
 }
 
 .Hacker {
-	width:180px;
+	width:160px;
 	margin:30px;
 	text-align:center;
 	display:inline-block;
 	vertical-align:top;
-	min-height:190px;
+	min-height:320px;
+	background:#444444;
 }
 
 .Hacker img {
@@ -253,3 +254,7 @@ div.splash {
 .Hacker h2,p {
 	margin:10px;
 }
+
+.Hacker .links > i { opacity:0.6; }
+.Hacker .links > i:hover { opacity:1; }
+.Hacker .links > i:active { position:relative; top:1px; }

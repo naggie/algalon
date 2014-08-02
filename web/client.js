@@ -170,8 +170,8 @@ var Hacker = function(initial) {
 	template.removeClass('template')
 
 	$('img',template).attr('src',initial.imgurl)
-	$('h2',template).text(initial.username)
-	$('p',template).text(initial.name)
+	$('.username',template).text(initial.username)
+	$('.name',template).text(initial.name)
 
 	template.click(function() { window.open(initial.profile) })
 }
