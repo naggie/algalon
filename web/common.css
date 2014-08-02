@@ -20,10 +20,6 @@ h1,h2,h3,h4 {
 	font-weight:300;
 }
 
-img {
-	margin-bottom:40px;
-}
-
 nav {
 	position:absolute;
 	top:6px;
@@ -241,8 +237,7 @@ div.splash {
 	text-align:center;
 	display:inline-block;
 	vertical-align:top;
-	min-height:320px;
-	background:#444444;
+	background:rgba(68,68,68,0.4);
 }
 
 .Hacker img {
@@ -250,8 +245,18 @@ div.splash {
 	height:160;
 }
 
-.Hacker h2,p {
-	margin:10px;
+.Hacker p {
+	margin:5px 0 10px 0;
+}
+
+.Hacker .username {
+	font-size:1.4em;
+}
+
+.Hacker .links {
+	background:#333333;
+	padding:5px 0 5px 0;
+	margin:5px 0 0 0;
 }
 
 .Hacker .links > i { opacity:0.6; }
