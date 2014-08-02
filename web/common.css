@@ -59,7 +59,7 @@ nav ul.buttons li {
 	cursor:pointer;
 }
 
-nav ul.buttons li:hover, nav ul li.selected {
+/*nav ul.buttons li:hover, */nav ul li.selected {
 	background:#444444;
 	opacity:1 !important;
 

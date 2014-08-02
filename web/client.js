@@ -24,14 +24,15 @@ socket.on('disconnect',function() { console.log('Lost connection to Algalon! TOD
 
 var init = function(data) {
 	var cats = $('#categories')
-	var article = $('<article />')
+	var article = $('article')
 
 	for (var i in data.categories) {
 		var cat = data.categories[i]
 		var tab = new Tab(cats,cat)
 		var section = new Section(article)
 		if (cat.default) section.select()
-		tab.click = section.select
+		tab.on('click',section.select)
+		tab.on('click',tab.select)
 		tabs[cat.name] = tab
 		sections[cat.name] = section
 	}
@@ -76,19 +77,21 @@ var Tab = function(parent,state) {
 	$('.alerts',template).hide()
 	template.removeClass('template')
 
+	// kind of like eventemitter!
+	// direct mapping impossible
+	this.on = function(event,fn) { template.on(event,fn) }
+
 	// better system later
 	template.attr('title',state.description)
 
-	// stuff which does change
+	this.select = function() {
+		$('.tab',parent).removeClass('selected')
+		template.addClass('selected')
+	}
+
+	// stuff which does change (state control)
 	this.set =  function(key,val) {
 		switch(key) {
-			case 'selected':
-				if (val) {
-					$('.tab',parent).removeClass('selected')
-					template.addClass('selected')
-				} else
-					template.removeClass('selected')
-			break;
 			case 'alerts':
 				if (!val)
 					$('.alerts',template).hide().text(0)
@@ -100,7 +103,8 @@ var Tab = function(parent,state) {
 		}
 	}
 
-	this.set('selected',!!state.default)
+	if (state.default)
+		this.select()
 }
 
 // Saas widget controller/creator
