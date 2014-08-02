@@ -61,7 +61,7 @@ categories:
 entities:
 # Sass
         - name            : Boards
-          category        : Saas
+          category        : SaaS
           class           : Saas
           url             : https://boards.darksky.io/
           description     : Discussion with the Darksky community
@@ -71,7 +71,7 @@ entities:
           powered_by_name : Discourse
 
         - name            : Labs
-          category        : Saas
+          category        : SaaS
           class           : Saas
           url             : https://labs.darksky.io/
           description     : Darksky project hosting
@@ -81,7 +81,7 @@ entities:
           powered_by_name : Gitlab
 
         - name            : Usenet
-          category        : Saas
+          category        : SaaS
           class           : Saas
           url             : http://usenet.darksky.io/
           description     : Binary newsreader with subscription to astraweb
@@ -91,7 +91,7 @@ entities:
           powered_by_name : Sabnzbdplus
 
         - name            : Torrents
-          category        : Saas
+          category        : SaaS
           class           : Saas
           url             : http://torrents.darksky.io/
           description     : Shared web torrent client
@@ -101,7 +101,7 @@ entities:
           powered_by_name : Discourse
 
         - name            : Depot
-          category        : Saas
+          category        : SaaS
           class           : Saas
           url             : http://depot.darksky.io/
           description     : Dump HTTP server for downloads from Usenet/torrents. To be unified.
@@ -111,7 +111,7 @@ entities:
           powered_by_name : nginx
 
         - name            : DSPA
-          category        : Saas
+          category        : SaaS
           class           : Saas
           url             : http://dspa.darksky.io/
           description     : Service announcement system
@@ -121,7 +121,7 @@ entities:
           powered_by_name : DSPA
 
         - name            : dsdrop
-          category        : services
+          category        : SaaS
           class           : Saas
           url             : http://drop.darksky.io/
           description     : One-click file sharing
@@ -131,7 +131,7 @@ entities:
           powered_by_name : dsdrop
 
         - name            : Vosbox
-          category        : services
+          category        : SaaS
           class           : Saas
           url             : http://music.darksky.io/
           description     : Music streaming from a massive collection of absolute GARBAGE
@@ -141,7 +141,7 @@ entities:
           powered_by_name : crates
 
         - name            : email
-          category        : services
+          category        : SaaS
           class           : Saas
           url             : http://mail.darksky.io/
           description     : NSA-mail for emailing people
