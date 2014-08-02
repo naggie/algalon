@@ -77,7 +77,7 @@ nav ul.buttons li:active ,nav ul li.selected {
 .category .healthbar {
 	background:#333333;
 	height:6px;
-	width:90%;
+	width:0%;
 	display:inline-block;
 }
 
