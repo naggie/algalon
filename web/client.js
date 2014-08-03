@@ -34,10 +34,25 @@ socket.on('connect',function() {
 socket.on('disconnect',function() { console.log('Lost connection to Algalon! TODO: resync') })
 
 var init = function(data) {
-	var cats = $('#categories')
+	var cats = $('#tabs')
 	var article = $('article')
 
 	serial = data.serial
+
+	// META
+	// About tab which is mandatory (may change so it's instantiated like
+	// other entities)
+	data.categories.push({
+		name:'About',
+		description:data.slogan,
+		icon:'fa-info-circle',
+	})
+	data.states['about'] = {
+		imgurl:data.logo,
+		description:data.description,
+		category:'About',
+		class:'About',
+	}
 
 	for (var i in data.categories) {
 		var cat = data.categories[i]
@@ -62,29 +77,14 @@ var init = function(data) {
 		name:'Health',
 	    	health:data.health,
 	})
-	
-	// about
-	//var aboutSection = new Section(article)
-	//var aboutTab = new Tab($('#system'),{
-	//	icon:'fa-info-circle',
-	//	name:'About',
-	//})
-	//aboutTab.on('click',aboutSection.select)
-	//aboutTab.on('click',aboutTab.select)
-	//var Widget = entityWidgets['About']
-	//new Widget({
-	//	imgurl:data.logo,
-	//    	description:data.description,
-	//})
 
-	// WS API
+	// WS API : TODO replace with single patch event
 	socket.on('set',function(id,key,val){ instances[id] && instances[id].set(key,val) })
 	socket.on('append',function(id,key,val){ instances[id] && instances[id].append(key,val) })
 	socket.on('destroy',function(id){ instances[id] && instances[id].destroy(key,val) })
 	socket.on('create',function(id,state){ instances[id] && createInstance(state) })
 	socket.on('alerts',function(cat,count){ tabs[cat] && tabs[cat].set('alerts',count) })
 	socket.on('health',function(percent){ healthTab.set('health',percent) })
-
 }
 
 var update = function() {
@@ -122,7 +122,10 @@ var Tab = function(parent,state) {
 
 	// kind of like eventemitter!
 	// direct mapping impossible
-	this.on = function(event,fn) { template.on(event,fn) }
+	this.on = function(event,fn) {
+		if (event == 'click') template.addClass('button')
+		template.on(event,fn)
+	}
 
 	// better system later
 	template.attr('title',state.description)
@@ -253,5 +256,5 @@ entityWidgets['About'] = function(parent,state) {
 	template.removeClass('template')
 
 	$('img',template).attr('src',state.imgurl)
-	$('.description',template).text(description)
+	$('.description',template).text(state.description)
 }
