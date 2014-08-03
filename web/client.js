@@ -3,6 +3,10 @@ var instances = {}
 var sections = {}
 var entityWidgets = {}
 
+// autoupdate: client will check this on reconnect, if different reload page
+var serial = 0
+
+
 // TODO: dummy instances to help alignment
 // // TODO assertions for parent selector
 
@@ -19,12 +23,20 @@ var socket = io.connect(undefined,{
 	'max reconnection attempts': Infinity
 })
 
-socket.on('connect',function() { console.log('Connected to Algalon') })
+socket.on('connect',function() {
+	console.log('Connected to Algalon')
+	$.ajax({
+		url      : 'serial',
+		success  : function(newserial) { if (newserial != serial) update() },
+	})
+})
 socket.on('disconnect',function() { console.log('Lost connection to Algalon! TODO: resync') })
 
 var init = function(data) {
 	var cats = $('#categories')
 	var article = $('article')
+
+	serial = data.serial
 
 	for (var i in data.categories) {
 		var cat = data.categories[i]
@@ -50,6 +62,11 @@ var init = function(data) {
 	socket.on('create',function(id,state){ instances[id] && createInstance(state) })
 	socket.on('alerts',function(cat,count){ tabs[cat] && tabs[cat].set('alerts',count) })
 
+}
+
+var update = function() {
+	$('.splash').show().text('DOWNLOADING UPDATE')
+	setTimeout(function() {location.reload() },1000)
 }
 
 var createInstance = function(state) {

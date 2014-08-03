@@ -214,12 +214,6 @@ div.panel.dummy {
 	background:#5aac5e;
 }
 
-div.splash {
-	background:url('darksky-dark-bg.svg') #031010 no-repeat center 30%;
-	position:absolute;
-	top:0;right:0;left:0;bottom:0;
-	display:none;
-}
 
 .template {
 	display:none !important;
@@ -268,4 +262,15 @@ div.splash {
 	text-align:left;
 	display:inline-block;
 	opacity:0.8;
+}
+
+.splash {
+	padding-top:520px;
+	text-align:center;
+	font-size:2em;
+	text-transform:uppercase;
+	background:url('darksky-dark-bg.svg') #031010 no-repeat center 120px;
+	position:absolute;
+	top:0;right:0;left:0;bottom:0;
+	display:none;
 }
