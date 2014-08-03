@@ -9,6 +9,7 @@ var serial = 0
 
 // TODO: dummy instances to help alignment
 // // TODO assertions for parent selector
+// TODO static Tab attr (health)
 
 $(function() {
 	$.ajax({
@@ -55,12 +56,34 @@ var init = function(data) {
 
 	addDummies()
 
+	// health
+	var healthTab = new Tab($('#info'),{
+		icon:'fa-heart',
+		name:'Health',
+	    	health:data.health,
+	})
+	
+	// about
+	//var aboutSection = new Section(article)
+	//var aboutTab = new Tab($('#system'),{
+	//	icon:'fa-info-circle',
+	//	name:'About',
+	//})
+	//aboutTab.on('click',aboutSection.select)
+	//aboutTab.on('click',aboutTab.select)
+	//var Widget = entityWidgets['About']
+	//new Widget({
+	//	imgurl:data.logo,
+	//    	description:data.description,
+	//})
+
 	// WS API
 	socket.on('set',function(id,key,val){ instances[id] && instances[id].set(key,val) })
 	socket.on('append',function(id,key,val){ instances[id] && instances[id].append(key,val) })
 	socket.on('destroy',function(id){ instances[id] && instances[id].destroy(key,val) })
 	socket.on('create',function(id,state){ instances[id] && createInstance(state) })
 	socket.on('alerts',function(cat,count){ tabs[cat] && tabs[cat].set('alerts',count) })
+	socket.on('health',function(percent){ healthTab.set('health',percent) })
 
 }
 
@@ -129,6 +152,9 @@ var Tab = function(parent,state) {
 
 	if (state.default)
 		this.select()
+
+	if (typeof state.health !== 'undefined')
+		this.set('health',state.health)
 }
 
 // Saas widget controller/creator
