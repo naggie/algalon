@@ -62,6 +62,7 @@ server.get('/data',function(req,res,next) {
 	res.send(200,{
 		categories  : manifest.categories,
 		name        : manifest.name,
+		logo        : manifest.logo, // TODO allow logos near manifest file (proxy)
 		slogan      : manifest.slogan,
 		description : manifest.description,
 		states      : aggr.states,

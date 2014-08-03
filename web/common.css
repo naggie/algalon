@@ -55,7 +55,7 @@ nav ul li {
 	border-bottom: 1px solid #222222;
 }
 
-nav ul.buttons li {
+nav ul li.button {
 	cursor:pointer;
 }
 
@@ -65,7 +65,7 @@ nav ul.buttons li {
 
 }
 
-nav ul.buttons li:active ,nav ul li.selected {
+nav ul li.button:active ,nav ul li.selected {
 	border-top: 1px solid #333333;
 	border-bottom:none;
 	padding-bottom:16px;
