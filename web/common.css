@@ -118,13 +118,6 @@ section {
 	background-size:contain;
 }
 
-section > p {
-	max-width:600px;
-	margin:30px;
-	text-align:left;
-	display:inline-block;
-	opacity:0.8;
-}
 
 div.panel {
 	width:300px;
@@ -263,3 +256,16 @@ div.splash {
 .Hacker .links > i { opacity:0.6; }
 .Hacker .links > i:hover { opacity:1; }
 .Hacker .links > i:active { position:relative; top:1px; }
+
+
+.About img {
+	margin-bottom:40px;
+}
+
+.About p {
+	max-width:600px;
+	margin:30px;
+	text-align:left;
+	display:inline-block;
+	opacity:0.8;
+}
