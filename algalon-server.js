@@ -45,12 +45,15 @@ server.use(restify.bodyParser({
 }))
 server.use(restify.jsonp())
 
+// SW API
 aggr.on('set',function(id,key,val){ io.emit('set',id,key,val) })
 aggr.on('append',function(id,key,val){ io.emit('append',id,key,val) })
 aggr.on('add',function(id,entity){ io.emit('add',id,entity) })
 aggr.on('destroy',function(id,entity){ io.emit('destroy',id) })
 aggr.on('health',function(health){ io.emit('health',health) })
+aggr.on('alerts',function(cat,count){ io.emit('alerts',cat,count) })
 
+// REST API
 server.get('/data',function(req,res,next) {
 	res.header('Cache-Control','no-cache')
 	res.send(200,{
@@ -60,6 +63,7 @@ server.get('/data',function(req,res,next) {
 		description : manifest.description,
 		states      : aggr.states,
 		health      : aggr.health, // %, also listen for health event
+		alerts      : aggr.alerts,
 	})
 //console.log(JSON.parse(JSON.stringify(aggr.instances)))
 })

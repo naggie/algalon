@@ -33,6 +33,7 @@ var init = function(data) {
 		if (cat.default) section.select()
 		tab.on('click',section.select)
 		tab.on('click',tab.select)
+		tab.set('alerts',data.alerts[cat.name])
 		tabs[cat.name] = tab
 		sections[cat.name] = section
 	}
@@ -42,10 +43,12 @@ var init = function(data) {
 
 	addDummies()
 
+	// WS API
 	socket.on('set',function(id,key,val){ instances[id] && instances[id].set(key,val) })
 	socket.on('append',function(id,key,val){ instances[id] && instances[id].append(key,val) })
 	socket.on('destroy',function(id){ instances[id] && instances[id].destroy(key,val) })
 	socket.on('create',function(id,state){ instances[id] && createInstance(state) })
+	socket.on('alerts',function(cat,count){ tabs[cat] && tabs[cat].set('alerts',count) })
 
 }
 
