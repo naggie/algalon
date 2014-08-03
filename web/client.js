@@ -200,3 +200,15 @@ var Section = function(parent) {
 		template.show()
 	}
 }
+
+// Saas widget controller/creator
+// static stuff directly, dynamic stuff with .set()
+entityWidgets['About'] = function(parent,state) {
+	// TODO inheritance from generic Widget class
+	var template = $( $('.About.template')[0].outerHTML )
+	parent.append(template)
+	template.removeClass('template')
+
+	$('img',template).attr('src',state.imgurl)
+	$('.description',template).text(description)
+}
