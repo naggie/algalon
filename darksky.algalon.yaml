@@ -181,7 +181,7 @@ entities:
         - name            : 'Martin Moen'
           class           : Hacker
           category        : Hackers
-          username        : Botto
+          username        : botto
           email           : martin@martinmoen.com
           profile         : https://boards.darksky.io/users/martin
           website         : http://martinmoen.com/
