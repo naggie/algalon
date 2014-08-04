@@ -157,6 +157,44 @@ entities:
           username        : naggie
           email           : callan.bryant@gmail.com
           profile         : https://boards.darksky.io/users/naggie
+          website         : http://callanbryant.co.uk/
+          description     : 'Possibly a goat disguised as a human'
+
+        - name            : 'James Reuss'
+          class           : Hacker
+          category        : Hackers
+          username        : jimjibone
+          email           : jamesreuss@gmail.com
+          profile         : https://boards.darksky.io/users/jimjibone
+          website         : http://jamesreuss.co.uk/
+          description     : "What doesn't arouse me?"
+
+        - name            : 'Phil Martin'
+          class           : Hacker
+          category        : Hackers
+          username        : frillip
+          email           : root@frillip.com
+          profile         : https://boards.darksky.io/users/frill
+          website         : https://frillip.com/
+          description     : "Chief in charge of sliced animal coordination"
+
+        - name            : 'Martin Moen'
+          class           : Hacker
+          category        : Hackers
+          username        : Botto
+          email           : martin@martinmoen.com
+          profile         : https://boards.darksky.io/users/martin
+          website         : http://martinmoen.com/
+          description     : "Straight talking money"
+
+        - name            : 'Tom Dewey'
+          class           : Hacker
+          category        : Hackers
+          username        : aquilum
+          email           : tom.dewey@outlook.com
+          profile         : https://boards.darksky.io/users/aquilum
+          website         : http://tomdewey.co.uk/
+          description     : "The paranoid trust-no-one .NET machine."
 
 # Enumerators create entities automatically at server start and periodically.
 # For dynamic targets which may change, such as projects, hosts, humans
