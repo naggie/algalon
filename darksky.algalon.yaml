@@ -26,16 +26,16 @@ listen : 0.0.0.0
 categories:
 
       - name     : SaaS
-        description : "User-level application services"
+        description : "Software as a service"
         icon     : fa-cloud
         default  : true
 
       - name     : Hackers
-        description : "Pathetic humans that serve the great hive mind That is Darksky. All hail Darksky!"
+        description : "Pathetic humans that serve the great Darksky. All hail Darksky!"
         icon     : fa-users
 
 #      - name     : Services
-#        description : "Infrastructure support network services"
+#        description : "Backing services"
 #        icon     : fa-gears
 #
 #      - name     : Servers
