@@ -124,8 +124,7 @@ div.panel {
 	margin:30px;
 	text-align:left;
 	display:inline-block;
-	background:#444444;
-	opacity:0.8;
+	background:rgba(68,68,68,0.6);
 	vertical-align:top;
 	min-height:190px;
 	border-top:5px solid #444444;
@@ -137,6 +136,7 @@ div.panel.pass {
 
 div.panel.fail {
 	border-top:5px solid red;
+	outline:1px solid red;
 }
 
 div.panel div.status {
