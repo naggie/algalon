@@ -130,14 +130,6 @@ div.panel {
 	border-top:5px solid #444444;
 }
 
-div.panel.pass {
-	border-top:5px solid #5aac5e;
-}
-
-div.panel.fail {
-	border-top:5px solid red;
-	outline:1px solid red;
-}
 
 div.panel div.status {
 	float:right;
@@ -171,7 +163,9 @@ div.panel p {
 	font-size:0.8em;
 }
 
-div.panel div.error {
+/* TODO: base widget/panel class inherited by Hacker and Saas */
+
+div div.error {
 	background:red;
 	color:white;
 	padding:5px;
@@ -180,18 +174,23 @@ div.panel div.error {
 	display:none;
 	font-size:0.8em;
 }
-div.panel div.error:before {
+div div.error:before {
 	content: "\f071";
 	font-family: FontAwesome;
 	margin:5px;
 }
 
-div.offline {
-	margin-top: 5px solid red;
+div.fail div.error {
+	display:block;
 }
 
-div.offline div.status {
-	color:red;
+div.pass {
+	border-top:5px solid #5aac5e;
+}
+
+div.fail {
+	border-top:5px solid red;
+	outline:1px solid red;
 }
 
 /* force left alignment */
@@ -226,6 +225,7 @@ div.panel.dummy {
 	display:inline-block;
 	vertical-align:top;
 	background:rgba(68,68,68,0.4);
+	border-top:5px solid #444444;
 }
 
 .Hacker img {
