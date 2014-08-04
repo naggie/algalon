@@ -57,7 +57,7 @@ var init = function(data) {
 	for (var i in data.categories) {
 		var cat = data.categories[i]
 		var tab = new Tab(cats,cat)
-		var section = new Section(article)
+		var section = new Section(article,cat.description)
 		if (cat.default) section.select()
 		tab.on('click',section.select)
 		tab.on('click',tab.select)
@@ -235,11 +235,14 @@ entityWidgets['Hacker'] = function(parent,state) {
 	template.click(function() { window.open(state.profile) })
 }
 
-var Section = function(parent) {
+var Section = function(parent,description) {
 	var template = $('<section />')
 	parent.append(template)
 	template.hide()
 	this.jqo = template
+
+	if (description)
+		$('<p />').text(description).appendTo(template)
 
 	this.select = function() {
 		$('section',parent).hide()

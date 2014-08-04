@@ -196,6 +196,15 @@ entities:
           website         : http://tomdewey.co.uk/
           description     : "The paranoid trust-no-one .NET machine."
 
+        - name            : 'lorenzo Primiterra'
+          class           : Hacker
+          category        : Hackers
+          username        : nuke
+          email           : lorenzoprimiterra@gmail.com
+          profile         : https://boards.darksky.io/users/nuke
+          website         : http://lorenzo.primiterra.it/
+          description     : "The mobile apps guy"
+          inactive        : Yes
 # Enumerators create entities automatically at server start and periodically.
 # For dynamic targets which may change, such as projects, hosts, humans
 # enumerated from a directory. Not supported yet.
