@@ -150,7 +150,7 @@ entities:
           powered_by_url  : http://www.google.com/enterprise/apps/business/
           powered_by_name : Google Apps (NSA)
 
-# Hackers
+# Hackers (automatic from LDAP or discourse in future)
         - name            : 'Callan Bryant'
           class           : Hacker
           category        : Hackers
@@ -158,6 +158,7 @@ entities:
           email           : callan.bryant@gmail.com
           profile         : https://boards.darksky.io/users/naggie
           website         : http://callanbryant.co.uk/
+          github          : naggie
           description     : 'Possibly a goat disguised as a human'
 
         - name            : 'James Reuss'

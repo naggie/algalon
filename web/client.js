@@ -185,15 +185,10 @@ entityWidgets['Saas'] = function(parent,state) {
 	this.set =  function(key,val) {
 		switch(key) {
 			case 'healthy':
-				if (!val) {
-					//$('.status',template).text('OFFLINE')
+				if (!val)
 					template.removeClass('pass').addClass('fail')
-					$('.error',template).show()
-				} else {
-					//$('.status',template).text('ONLINE')
+				else
 					template.removeClass('fail').addClass('pass')
-					$('.error',template).hide()
-				}
 			break;
 			case 'error':
 				$('.error',template).text(val)
@@ -257,4 +252,21 @@ entityWidgets['About'] = function(parent,state) {
 
 	$('img',template).attr('src',state.imgurl)
 	$('.description',template).text(state.description)
+
+	// stuff which does change
+	this.set =  function(key,val) {
+		switch(key) {
+			case 'healthy':
+				if (!val)
+					template.removeClass('pass').addClass('fail')
+				else
+					template.removeClass('fail').addClass('pass')
+			break;
+			default:
+				console.error('Unknown Hacker widget key:',key)
+		}
+	}
+
+	if (typeof state.healthy !== 'undefined')
+		this.set('healthy',state.healthy)
 }
