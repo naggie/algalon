@@ -3,13 +3,8 @@ var instances = {}
 var sections = {}
 var entityWidgets = {}
 
-// autoupdate: client will check this on reconnect, if different reload page
-var serial = 0
-
-
 // TODO: dummy instances to help alignment
 // // TODO assertions for parent selector
-// TODO static Tab attr (health)
 
 $(function() {
 	$.ajax({
@@ -24,20 +19,20 @@ var socket = io.connect(undefined,{
 	'max reconnection attempts': Infinity
 })
 
-socket.on('connect',function() {
-	console.log('Connected to Algalon')
-	$.ajax({
-		url      : 'serial',
-		success  : function(newserial) { if (newserial != serial) update() },
-	})
+socket.on('connect',function() { console.log('Connected to Algalon') })
+socket.on('disconnect',function() {
+	console.log('Connection interrupted')
+	$('.splash').show().text('Connection interrupted')
 })
-socket.on('disconnect',function() { console.log('Lost connection to Algalon! TODO: resync') })
+socket.on('reconnect',function() {
+	console.log('Reconnected')
+	$('.splash').show().text('Reloading...')
+	setTimeout(function(){location.reload()},800)
+})
 
 var init = function(data) {
 	var cats = $('#tabs')
 	var article = $('article')
-
-	serial = data.serial
 
 	// META
 	// About tab which is mandatory (may change so it's instantiated like
@@ -85,11 +80,6 @@ var init = function(data) {
 	socket.on('create',function(id,state){ instances[id] && createInstance(state) })
 	socket.on('alerts',function(cat,count){ tabs[cat] && tabs[cat].set('alerts',count) })
 	socket.on('health',function(percent){ healthTab.set('health',percent) })
-}
-
-var update = function() {
-	$('.splash').show().text('DOWNLOADING UPDATE')
-	setTimeout(function() {location.reload() },1000)
 }
 
 var createInstance = function(state) {
