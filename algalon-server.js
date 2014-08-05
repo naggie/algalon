@@ -24,9 +24,6 @@ var fs       = require('fs')
 var Aggr     = require('./lib/Aggregator')
 var aggr     = new Aggr()
 
-// to get clients to reload if server has reloaded
-var serial = Math.random()
-
 var manifest = yaml.safeLoad( fs.readFileSync(__dirname+'/darksky.algalon.yaml', 'utf8') )
 
 aggr.instantiateEntities(manifest.entities)
@@ -68,16 +65,8 @@ server.get('/data',function(req,res,next) {
 		states      : aggr.states,
 		health      : aggr.health, // %, also listen for health event
 		alerts      : aggr.alerts,
-		serial      : serial, //autoupdate: server instance ID
 	})
 })
-
-// autoupdate: client will check this on reconnect, if different reload page
-server.get('/serial',function(req,res,next) {
-	res.header('Cache-Control','no-cache')
-	res.send(200,serial)
-})
-
 
 // web dashboard
 server.get(/.+/,restify.serveStatic({
