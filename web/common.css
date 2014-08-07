@@ -92,11 +92,11 @@ nav .name {
 }
 
 .alerts {
-	background:#a02c2c;
+	background:red;
 	border-radius:16px;
-	margin:6px;
+	margin:3px 9px 5px 5px;
 	font-size:14px;
-	padding:0 7px 4px 6px;
+	padding:4px 8px 4px 7px;
 	float:right;
 }
 
