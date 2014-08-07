@@ -130,7 +130,6 @@ div.panel {
 	border-top:5px solid #444444;
 }
 
-
 div.panel div.status {
 	float:right;
 	display:inline-block;
@@ -273,4 +272,17 @@ div.panel.dummy {
 	position:absolute;
 	top:0;right:0;left:0;bottom:0;
 	display:none;
+}
+
+div.blinkenlight {
+	float:right;
+	margin:5px;
+	width:8px;
+	height:8px;
+	background:#555;
+}
+
+div.blinkenlight.on {
+	background:white;
+	box-shadow: 0 0 5px #dddddd;
 }
