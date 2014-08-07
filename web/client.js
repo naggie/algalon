@@ -153,6 +153,7 @@ var Tab = function(parent,state) {
 // Saas widget controller/creator
 // static stuff directly, dynamic stuff with .set()
 entityWidgets['Saas'] = function(parent,state) {
+	var self = this
 	// TODO inheritance from generic Widget class
 	var template = $( $('.Saas.template')[0].outerHTML )
 	parent.append(template)
@@ -171,8 +172,17 @@ entityWidgets['Saas'] = function(parent,state) {
 		window.open(state.url)
 	})
 
+
+	this.blinken = function() {
+		$('.blinkenlight',template).addClass('on')
+		setTimeout(function() {
+			$('.blinkenlight',template).removeClass('on')
+		},100)
+	}
+
 	// stuff which does change
 	this.set =  function(key,val) {
+		self.blinken()
 		switch(key) {
 			case 'healthy':
 				if (!val)
