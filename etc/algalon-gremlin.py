@@ -5,6 +5,11 @@
 # TODO: Use network stat class
 # TODO: Include error in response object
 #
+# sudo apt-get install python-pip lm-sensors nodejs
+# sudo sensors-detect
+# sudo pip install tornado
+# sudo npm install pm2
+#
 # To launch: pm2 start -x algalon-gremlin.py
 
 
