@@ -149,6 +149,7 @@ entities:
           fingerprint     : 'Google Accounts'
           powered_by_url  : http://www.google.com/enterprise/apps/business/
           powered_by_name : Google Apps (NSA)
+          interval        : 60 # let's not bug them
 
 # Hackers (automatic from LDAP or discourse in future)
         - name            : 'Callan Bryant'
