@@ -11,6 +11,10 @@ Entities consist of a server-side javascript class, a client-side javascript
 class, and some CSS classes. There is currently no packaging system for this,
 but this is planned.
 
+Natural dependencies will result in some failures cascading, which will reduce
+the health further. Therefore, something severe will naturally have more weight
+to it.
+
 Currently available entities:
 
 1. `Saas`: Software as a service: will test a HTTP based service for a 200
