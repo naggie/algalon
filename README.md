@@ -21,3 +21,9 @@ Currently available entities:
 3. `Server`: A monitoring widget similar to MLDASH, except the servers each run
    a tiny RESTful webserver. The module works in a similar way to `Saas` but
    also monitors CPU usage, temperature, RAM usage, Disk usage etc.
+
+Planned enumerators:
+
+1. Github organisations for `Hacker`s
+2. Discourse `Hacker`s
+3. nmap scan of host

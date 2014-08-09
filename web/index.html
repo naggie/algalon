@@ -7,6 +7,7 @@
 		<!-- DEV ONLY REFRESH -->
 		<!--<meta http-equiv="refresh" content="1" >-->
 		<script src="jquery-2.1.1.min.js"></script>
+		<script src="jquery.magicBar.js"></script>
 		<script src="/socket.io/socket.io.js"></script>
 		<script src="client.js"></script>
 	</head>
@@ -46,6 +47,26 @@
 				<img />
 				<br />
 				<p class="description"></p>
+			</div>
+			<div class="Server panel template">
+				<div class="blinkenlight"></div>
+				<i class="fa fa-3x fa-fw fa-building-o"></i>
+				<h1 class='hostname'>nelson</h1>
+				<div class="error">Problem detected</div>
+				<table><tbody>
+					<tr class="uptime">
+						<th>Uptime</th><td class="value">0 days</td><td class="min limit"></td><td class="bar"></td><td class="max limit"></td>
+					</tr>
+					<tr class="load">
+						<th>Load</th><td class="value">1%</td><td class="min limit">0%</td><td class="bar"><div class="magicBar"></div></td><td class="max limit">100%</td>
+					</tr>
+					<tr class="storage">
+						<th>Storage</th><td class="value">16GB</td><td class="min limit">0GB</td><td class="bar"><div class="magicBar"></div></td><td class="max limit">67GB</td>
+					</tr>
+					<tr class="memory">
+						<th>Memory</th><td class="value">923MB</td><td class="min limit">0MB</td><td class="bar"><div class="magicBar"></div></td><td class="max limit">1999MB</td></tr><tr id="0191d7b3c2644b319942db9ff002be2a"><th>Temperature</th><td class="value" style="color: rgb(255, 39, 0);">75°C</td><td class="min limit">15°C</td><td class="bar" style="background-color: black;"><div class="magicBar" style="height: 100%; width: 92.3076923076923%; overflow: hidden; background-color: rgb(255, 39, 0);"></div></td><td class="max limit">80°C</td></tr><tr id="05b9508fc1616c834484a278724eae32"><th>TX</th><td class="value" style="color: rgb(255, 255, 255);">0Mbps</td><td class="min limit">0Mbps</td><td class="bar" style="background-color: black;"><div class="magicBar" style="height: 100%; width: 0%; overflow: hidden; background-color: rgb(255, 255, 255);"></div></td><td class="max limit">10Mbps</td>
+					</tr>
+				</tbody></table>
 			</div>
 		</div>
 		<nav>
