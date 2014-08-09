@@ -35,10 +35,10 @@ categories:
         description : "Pathetic humans that serve the great Darksky. All hail Darksky!"
         icon     : fa-users
 
-#      - name     : Services
-#        description : "Backing services"
-#        icon     : fa-gears
-#
+      - name     : Services
+        description : "Backing services"
+        icon     : fa-gears
+
       - name     : Servers
         description : "Dedicated servers, continental and residential"
         icon     : fa-sitemap
@@ -198,6 +198,18 @@ entities:
           profile         : https://boards.darksky.io/users/aquilum
           website         : http://tomdewey.co.uk/
           description     : "The paranoid trust-no-one .NET machine."
+		  
+# SERVICES
+        - name            : NTP Master
+          category        : Services
+          class           : Services
+          url             : http://ntpmaster.darksky.io/
+          description     : Darksky.io Private Stratum 1 NTP Server
+          icon            : fa-hdd-o
+          fingerprint     : "NTP_SERVER_ONLINE"
+          powered_by_url  : http://www.ntp.org/
+          powered_by_name : NTPd
+          interval        : 5
 
 # SERVERS
         - name            : Aperture
