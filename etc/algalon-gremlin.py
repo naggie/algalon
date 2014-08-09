@@ -227,7 +227,7 @@ def get_aggregate():
         return state
 
     except (requests.HTTPError,requests.ConnectionError, requests.Timeout) as e:
-        return {error:e}
+        return {'error':str(e)}
 
 
 
