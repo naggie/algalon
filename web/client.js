@@ -282,10 +282,6 @@ entityWidgets['Server'] = function(parent,state) {
 	$('.name',template).text(state.name)
 	template.removeClass('template')
 
-	$('.storage .max.limit',template).text(state['StorageTotal-GB']+'GB')
-	$('.memory .max.limit',template).text(state['MemoryTotal-GB']+'GB')
-
-
 	this.blinken = function() {
 		$('.blinkenlight',template).addClass('on')
 		setTimeout(function() {
@@ -297,6 +293,8 @@ entityWidgets['Server'] = function(parent,state) {
 	this.set =  function(key,val) {
 		self.blinken()
 		switch(key) {
+			case 'StorageTotal-GB': $('.storage .max.limit',template).text(val+'GB'); break;
+			case 'MemoryTotal-GB': $('.memory .max.limit',template).text(val+'GB'); break;
 			case 'Uptime-days': $('.uptime .value',template).text(val+' days'); break;
 			case 'Load-percent':
 				$('.load .value',template).text(val+'%')
