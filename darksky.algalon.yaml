@@ -218,35 +218,44 @@ entities:
           category        : Servers
                   #...specs...
 
+        - name            : Blackmesa
+          hostname        : blackmesa.darksky.io
+          class           : Server
+          category        : Servers
+                  #...specs...
         - name            : Chell
           hostname        : chell.darksky.io
           entity          : Server
           category        : Servers
                   #...specs...
 
-        - name            : Blackmesa
-          hostname        : blackmesa.darksky.io
-          entity          : Server
+        - name            : Discouragement
+          hostname        : discouragement.darksky.io
+          class           : Server
           category        : Servers
                   #...specs...
 
-        - name            : Paprika
-          hostname        : paprika.darksky.io
-          entity          : Server
-          category        : Servers
-                  #...specs...
-
-        - name            : Nelson
-          hostname        : nelson.darksky.io
-          entity          : Server
+        - name            : Emancipation
+          hostname        : emancipation.darksky.io
+          class           : Server
           category        : Servers
                   #...specs...
 
         - name            : NAVCOM
           hostname        : navcom.darksky.io
-          entity          : Server
+          class           : Server
           category        : Servers
                   #...specs...
+
+        - name            : Paprika
+          hostname        : paprika.darksky.io
+          class           : Server
+          category        : Servers
+                  #...specs...
+
+        - name            : Nelson
+          hostname        : nelson.darksky.io
+          class           : Server
 
 # Enumerators create entities automatically at server start and periodically.
 # For dynamic targets which may change, such as projects, hosts, humans
