@@ -264,11 +264,11 @@ div.panel.dummy {
 }
 
 .splash {
-	padding-top:520px;
+	padding-top:20%;
 	text-align:center;
 	font-size:2em;
 	text-transform:uppercase;
-	background:url('darksky-dark-bg.svg') #031010 no-repeat center 120px;
+	background:#031010;
 	position:absolute;
 	top:0;right:0;left:0;bottom:0;
 	display:none;
