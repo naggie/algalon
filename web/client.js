@@ -162,7 +162,6 @@ entityWidgets['Saas'] = function(parent,state) {
 	// and initial state
 	$('i',template).addClass(state.icon || 'fa-cubes')
 	$('.name',template).text(state.name)
-	$('.alerts',template).hide()
 	template.removeClass('template')
 
 	// better system later
@@ -279,9 +278,12 @@ entityWidgets['Server'] = function(parent,state) {
 	var template = $( $('.Server.template')[0].outerHTML )
 	parent.append(template)
 
+	// static stuff
 	$('.name',template).text(state.name)
-	$('.alerts',template).hide()
 	template.removeClass('template')
+
+	$('.storage .max.limit',template).text(state['StorageTotal-GB']+'GB')
+	$('.memory .max.limit',template).text(state['MemoryTotal-GB']+'GB')
 
 
 	this.blinken = function() {
@@ -295,6 +297,19 @@ entityWidgets['Server'] = function(parent,state) {
 	this.set =  function(key,val) {
 		self.blinken()
 		switch(key) {
+			case 'Uptime-days': $('.uptime .value',template).text(val+' days'); break;
+			case 'Load-percent':
+				$('.load .value',template).text(val+'%')
+				$('.load .bar',template).magicBar({gradient:'negative',value:val})
+			break;
+			case 'Memory-GB':
+				$('.memory .value',template).text(val+'GB')
+				$('.memory .bar',template).magicBar({value:val,max:state['MemoryTotal-GB']})
+			break;
+			case 'Storage-GB':
+				$('.storage .value',template).text(val+'GB')
+				$('.storage .bar',template).magicBar({gradient:'negative',value:val,max:state['StorageTotal-GB']})
+			break;
 			case 'healthy':
 				if (!val)
 					template.removeClass('pass').addClass('fail')
@@ -304,8 +319,6 @@ entityWidgets['Server'] = function(parent,state) {
 			case 'error':
 				$('.error',template).text(val)
 			break;
-			default:
-				console.error('Unknown Server widget key:',key)
 		}
 	}
 
@@ -313,4 +326,8 @@ entityWidgets['Server'] = function(parent,state) {
 		this.set('healthy',state.healthy)
 
 	this.set('error',state.error)
+
+	// lazy!
+	for (var i in state)
+		this.set(i,state[i])
 }
