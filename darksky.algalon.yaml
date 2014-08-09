@@ -223,6 +223,18 @@ entities:
           category        : Servers
                   #...specs...
 
+        - name            : Nelson
+          hostname        : nelson.darksky.io
+          class           : Server
+          category        : Servers
+                  #...specs...
+
+        - name            : NAVCOM
+          hostname        : navcom.darksky.io
+          class           : Server
+          category        : Servers
+                  #...specs...
+
 # Enumerators create entities automatically at server start and periodically.
 # For dynamic targets which may change, such as projects, hosts, humans
 # enumerated from a directory. Not supported yet.
