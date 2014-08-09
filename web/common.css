@@ -220,6 +220,7 @@ div.panel.dummy {
 
 .Hacker p {
 	margin:5px 0 10px 0;
+
 }
 
 .Hacker .username {
@@ -247,6 +248,8 @@ div.panel.dummy {
 	text-align:left;
 	display:inline-block;
 	opacity:0.8;
+	font-family:sans-serif;
+	font-weight:100;
 }
 
 .splash {
@@ -334,6 +337,11 @@ div.panel header {
 
 .Server table .value {
 	width:80px;
+}
+
+.Server td {
+	font-family:sans-serif;
+	font-weight:100;
 }
 
 .Server.fail table {
