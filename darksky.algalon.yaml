@@ -211,6 +211,17 @@ entities:
           powered_by_name : NTPd
           interval        : 5
 
+		- name            : Is Frill home?
+          category        : Services
+          entity          : HttpSaas
+          url             : http://ntpmaster.darksky.io/
+          description     : Is Frill's Android device within range?
+          icon            : fa-hdd-o
+          fingerprint     : "FRILL_HOME_TRUE"
+          powered_by_url  : http://www.bluez.org/
+          powered_by_name : Bluez
+          interval        : 5
+
 # SERVERS
         - name            : Aperture
           hostname        : aperture.darksky.io
