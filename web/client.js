@@ -89,7 +89,7 @@ var createInstance = function(state) {
 	var parent = sections[state.category].jqo
 
 	if(!entityWidgets[state.class])
-		return console.error('Unknown Widget class:',state.class)
+		return console.error('Unknown Widget class:',state.class,state)
 
 	var Class = entityWidgets[state.class]
 	var instance = new Class(parent,state)

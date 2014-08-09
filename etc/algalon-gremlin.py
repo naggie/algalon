@@ -4,6 +4,8 @@
 #
 # TODO: Use network stat class
 # TODO: Include error in response object
+#
+# To launch: pm2 start -x algalon-gremlin.py
 
 
 import requests

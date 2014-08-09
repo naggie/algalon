@@ -18,7 +18,7 @@ description : >
         technology, genetic experimentation and viral weaponry."
 
 #port   : 80
-port   : 8030
+port   : 9090
 listen : 0.0.0.0
 
 # Categories of test instances. Used to optionally sort widgets, provide
@@ -38,9 +38,9 @@ categories:
 #        description : "Backing services"
 #        icon     : fa-gears
 #
-#      - name     : Servers
-#        description : "Dedicated servers, continental and residential"
-#        icon     : fa-sitemap
+      - name     : Servers
+        description : "Dedicated servers, continental and residential"
+        icon     : fa-sitemap
 #
 #      - name     : Projects
 #        description : "All active Darksky projects and statistics"
@@ -196,6 +196,13 @@ entities:
           profile         : https://boards.darksky.io/users/aquilum
           website         : http://tomdewey.co.uk/
           description     : "The paranoid trust-no-one .NET machine."
+
+# SERVERS
+        - name            : Aperture
+          hostname        : aperture.darksky.io
+          class           : Server
+          category        : Servers
+                  #...specs...
 
 # Enumerators create entities automatically at server start and periodically.
 # For dynamic targets which may change, such as projects, hosts, humans
