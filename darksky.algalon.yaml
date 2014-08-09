@@ -63,7 +63,7 @@ entities:
 # Sass
         - name            : Boards
           category        : SaaS
-          class           : Saas
+          entity          : HttpSaas
           url             : https://boards.darksky.io/
           description     : Discussion with the Darksky community
           icon            : fa-comments-o
@@ -73,7 +73,7 @@ entities:
 
         - name            : Labs
           category        : SaaS
-          class           : Saas
+          entity          : HttpSaas
           url             : https://labs.darksky.io/
           description     : Darksky project hosting
           icon            : fa-flask
@@ -83,7 +83,7 @@ entities:
 
         - name            : Usenet
           category        : SaaS
-          class           : Saas
+          entity          : HttpSaas
           url             : http://usenet.darksky.io/
           description     : Binary newsreader with subscription to astraweb
           icon            : fa-hdd-o
@@ -93,7 +93,7 @@ entities:
 
         - name            : Torrents
           category        : SaaS
-          class           : Saas
+          entity          : HttpSaas
           url             : http://torrents.darksky.io/
           description     : Shared web torrent client
           fingerprint     : "rTorrent"
@@ -103,7 +103,7 @@ entities:
 
         - name            : Depot
           category        : SaaS
-          class           : Saas
+          entity          : HttpSaas
           url             : http://depot.darksky.io/
           description     : Dump HTTP server for downloads from Usenet/torrents. To be unified.
           icon            : fa-hdd-o
@@ -113,7 +113,7 @@ entities:
 
         - name            : DSPA
           category        : SaaS
-          class           : Saas
+          entity          : HttpSaas
           url             : http://dspa.darksky.io/
           description     : Service announcement system
           icon            : fa-volume-up
@@ -123,7 +123,7 @@ entities:
 
         - name            : dsdrop
           category        : SaaS
-          class           : Saas
+          entity          : HttpSaas
           url             : http://drop.darksky.io/
           description     : One-click file sharing
           icon            : fa-download
@@ -133,7 +133,7 @@ entities:
 
         - name            : Vosbox
           category        : SaaS
-          class           : Saas
+          entity          : HttpSaas
           url             : http://music.darksky.io/
           description     : Music streaming from a massive collection of absolute GARBAGE
           icon            : fa-music
@@ -143,7 +143,7 @@ entities:
 
         - name            : email
           category        : SaaS
-          class           : Saas
+          entity          : HttpSaas
           url             : http://mail.darksky.io/
           description     : NSA-mail for emailing people
           icon            : fa-envelope-o
@@ -154,7 +154,7 @@ entities:
 
 # Hackers (automatic from LDAP or discourse in future)
         - name            : 'Callan Bryant'
-          class           : Hacker
+          entity          : Hacker
           category        : Hackers
           username        : naggie
           email           : callan.bryant@gmail.com
@@ -164,7 +164,7 @@ entities:
           description     : 'Possibly a goat disguised as a human'
 
         - name            : 'James Reuss'
-          class           : Hacker
+          entity          : Hacker
           category        : Hackers
           username        : jimjibone
           email           : jamesreuss@gmail.com
@@ -173,7 +173,7 @@ entities:
           description     : "What doesn't arouse me?"
 
         - name            : 'Phil Martin'
-          class           : Hacker
+          entity          : Hacker
           category        : Hackers
           username        : frillip
           email           : root@frillip.com
@@ -182,7 +182,7 @@ entities:
           description     : "Chief in charge of sliced animal coordination"
 
         - name            : 'Martin Moen'
-          class           : Hacker
+          entity          : Hacker
           category        : Hackers
           username        : botto
           email           : martin@martinmoen.com
@@ -191,7 +191,7 @@ entities:
           description     : "Straight talking money"
 
         - name            : 'Tom Dewey'
-          class           : Hacker
+          entity          : Hacker
           category        : Hackers
           username        : aquilum
           email           : tom.dewey@outlook.com
@@ -202,7 +202,7 @@ entities:
 # SERVICES
         - name            : NTP Master
           category        : Services
-          class           : Saas
+          entity          : HttpSaas
           url             : http://ntpmaster.darksky.io/
           description     : Darksky.io Private Stratum 1 NTP Server
           icon            : fa-hdd-o
@@ -214,37 +214,37 @@ entities:
 # SERVERS
         - name            : Aperture
           hostname        : aperture.darksky.io
-          class           : Server
+          entity          : Server
           category        : Servers
                   #...specs...
 
         - name            : Chell
           hostname        : chell.darksky.io
-          class           : Server
+          entity          : Server
           category        : Servers
                   #...specs...
 
         - name            : Blackmesa
           hostname        : blackmesa.darksky.io
-          class           : Server
+          entity          : Server
           category        : Servers
                   #...specs...
 
         - name            : Paprika
           hostname        : paprika.darksky.io
-          class           : Server
+          entity          : Server
           category        : Servers
                   #...specs...
 
         - name            : Nelson
           hostname        : nelson.darksky.io
-          class           : Server
+          entity          : Server
           category        : Servers
                   #...specs...
 
         - name            : NAVCOM
           hostname        : navcom.darksky.io
-          class           : Server
+          entity          : Server
           category        : Servers
                   #...specs...
 
