@@ -198,11 +198,11 @@ entities:
           profile         : https://boards.darksky.io/users/aquilum
           website         : http://tomdewey.co.uk/
           description     : "The paranoid trust-no-one .NET machine."
-		  
+
 # SERVICES
         - name            : NTP Master
           category        : Services
-          class           : Services
+          class           : Saas
           url             : http://ntpmaster.darksky.io/
           description     : Darksky.io Private Stratum 1 NTP Server
           icon            : fa-hdd-o
