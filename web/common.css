@@ -294,7 +294,7 @@ div.panel header {
 
 .Server header {
 	float:left;
-	height:160px;
+	height:180px;
 	text-align:center;
 	width:160px;
 	padding-top:40px;
@@ -303,7 +303,7 @@ div.panel header {
 .Server table {
 	font-size:0.7em;
 	margin:10px;
-	margin-top:30px;
+	margin-top:20px;
 	border-collapse: separate;
 	border-spacing:12px;
 }
@@ -326,5 +326,5 @@ div.panel header {
 }
 
 .Server.fail table {
-	margin:10px;
+	margin:0px;
 }

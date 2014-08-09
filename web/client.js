@@ -308,6 +308,10 @@ entityWidgets['Server'] = function(parent,state) {
 				$('.storage .value',template).text(val+'GB')
 				$('.storage .bar',template).magicBar({gradient:'negative',value:val,max:state['StorageTotal-GB']})
 			break;
+			case 'Temperature-C':
+				$('.temperature .value',template).html(val+'&deg;C')
+				$('.temperature .bar',template).magicBar({gradient:'negative',value:val,max:80})
+			break;
 			case 'healthy':
 				if (!val)
 					template.removeClass('pass').addClass('fail')
