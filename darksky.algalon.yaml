@@ -204,6 +204,24 @@ entities:
           category        : Servers
                   #...specs...
 
+        - name            : Chell
+          hostname        : chell.darksky.io
+          class           : Server
+          category        : Servers
+                  #...specs...
+
+        - name            : Blackmesa
+          hostname        : blackmesa.darksky.io
+          class           : Server
+          category        : Servers
+                  #...specs...
+
+        - name            : Paprika
+          hostname        : paprika.darksky.io
+          class           : Server
+          category        : Servers
+                  #...specs...
+
 # Enumerators create entities automatically at server start and periodically.
 # For dynamic targets which may change, such as projects, hosts, humans
 # enumerated from a directory. Not supported yet.

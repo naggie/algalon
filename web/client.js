@@ -270,3 +270,47 @@ entityWidgets['About'] = function(parent,state) {
 	if (typeof state.healthy !== 'undefined')
 		this.set('healthy',state.healthy)
 }
+
+// Saas widget controller/creator
+// static stuff directly, dynamic stuff with .set()
+entityWidgets['Server'] = function(parent,state) {
+	var self = this
+	// TODO inheritance from generic Widget class
+	var template = $( $('.Server.template')[0].outerHTML )
+	parent.append(template)
+
+	$('.name',template).text(state.name)
+	$('.alerts',template).hide()
+	template.removeClass('template')
+
+
+	this.blinken = function() {
+		$('.blinkenlight',template).addClass('on')
+		setTimeout(function() {
+			$('.blinkenlight',template).removeClass('on')
+		},100)
+	}
+
+	// stuff which does change
+	this.set =  function(key,val) {
+		self.blinken()
+		switch(key) {
+			case 'healthy':
+				if (!val)
+					template.removeClass('pass').addClass('fail')
+				else
+					template.removeClass('fail').addClass('pass')
+			break;
+			case 'error':
+				$('.error',template).text(val)
+			break;
+			default:
+				console.error('Unknown Server widget key:',key)
+		}
+	}
+
+	if (typeof state.healthy !== 'undefined')
+		this.set('healthy',state.healthy)
+
+	this.set('error',state.error)
+}
