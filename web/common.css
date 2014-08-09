@@ -122,7 +122,6 @@ section {
 
 
 div.panel {
-	width:300px;
 	margin:30px;
 	text-align:left;
 	display:inline-block;
@@ -139,23 +138,6 @@ div.panel div.status {
 	font-size:18px;
 	margin:3px 6px 3px 3px;
 	text-transform:uppercase;
-}
-
-div.panel div.name {
-	position:relative;
-	top:-10px;
-	display:inline-block;
-	font-size:32px;
-
-}
-
-div.panel i.logo {
-	padding:10px;
-	margin-right:10px;
-}
-
-div.panel header {
-	background:#333333;
 }
 
 div.panel p {
@@ -219,15 +201,6 @@ div.panel.dummy {
 	display:none !important;
 }
 
-.Hacker {
-	width:160px;
-	margin:30px;
-	text-align:center;
-	display:inline-block;
-	vertical-align:top;
-	background:rgba(68,68,68,0.4);
-	border-top:5px solid #444444;
-}
 
 .Hacker img {
 	width:160;
@@ -287,4 +260,71 @@ div.blinkenlight {
 div.blinkenlight.on {
 	background:white;
 	box-shadow: 0 0 5px #dddddd;
+}
+
+div.Saas {
+	width:300px;
+}
+
+div.Saas div.name {
+	position:relative;
+	top:-10px;
+	display:inline-block;
+	font-size:32px;
+
+}
+
+div.Saas i.logo {
+	padding:10px;
+	margin-right:10px;
+}
+
+div.panel header {
+	background:#333333;
+}
+
+.Hacker {
+	width:160px;
+	text-align:center!important;
+}
+
+.Server {
+	width:600px;
+}
+
+.Server header {
+	float:left;
+	height:160px;
+	text-align:center;
+	width:160px;
+	padding-top:40px;
+}
+
+.Server table {
+	font-size:0.7em;
+	margin:10px;
+	margin-top:30px;
+	border-collapse: separate;
+	border-spacing:12px;
+}
+
+.Server table th {
+	padding-left:10px;
+}
+
+.Server .limit {
+	font-size:0.7em;
+}
+
+.Server .bar {
+	width:180px;
+	height:5px;
+}
+
+.Server table .value {
+	width:80px;
+}
+
+.Server.fail table {
+	margin:10px;
 }

@@ -41,6 +41,7 @@ categories:
       - name     : Servers
         description : "Dedicated servers, continental and residential"
         icon     : fa-sitemap
+        default  : true #temp
 #
 #      - name     : Projects
 #        description : "All active Darksky projects and statistics"
