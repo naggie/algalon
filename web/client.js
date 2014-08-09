@@ -137,6 +137,7 @@ var Tab = function(parent,state) {
 			case 'health':
 				$('.health',template).show()
 				$('.bar',template).stop(1).animate({'width':val+'%'})
+				$('.value',template).show().text(val+'%')
 			break;
 			default:
 				console.error('Unknown Tab widget key:',key)
