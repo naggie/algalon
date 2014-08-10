@@ -71,15 +71,15 @@ entities:
           powered_by_url  : http://discourse.org/
           powered_by_name : Discourse
 
-        - name            : Labs
-          category        : SaaS
-          entity          : HttpSaas
-          url             : https://labs.darksky.io/
-          description     : Darksky project hosting
-          icon            : fa-flask
-          fingerprint     : "About GitLab"
-          powered_by_url  : http://gitlab.org/
-          powered_by_name : Gitlab
+#        - name            : Labs
+#          category        : SaaS
+#          entity          : HttpSaas
+#          url             : https://labs.darksky.io/
+#          description     : Darksky project hosting
+#          icon            : fa-flask
+#          fingerprint     : "About GitLab"
+#          powered_by_url  : http://gitlab.org/
+#          powered_by_name : Gitlab
 
         - name            : Usenet
           category        : SaaS
