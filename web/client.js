@@ -283,6 +283,11 @@ entityWidgets['Server'] = function(parent,state) {
 	$('.name',template).text(state.name)
 	template.removeClass('template')
 
+	// HACK TODO CHANGEME fit in Frill's ridiculously long server names
+	if (state.name.length > 10)
+		$('.name',template).css('font-size','0.85em')
+
+
 	this.blinken = function() {
 		$('.blinkenlight',template).addClass('on')
 		setTimeout(function() {
