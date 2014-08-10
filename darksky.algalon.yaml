@@ -209,6 +209,15 @@ entities:
           powered_by_url  : http://www.ntp.org/
           powered_by_name : NTPd
 
+        - name            : DNS Master
+          category        : Services
+          entity          : Dns
+          hostname        : ns0.darksky.io
+          description     : Reference DNS server
+          icon            : fa-history fa-flip-horizontal
+          powered_by_url  : http://www.bind9.net/
+          powered_by_name : NTPd
+
 # SERVERS
         - name            : Aperture
           hostname        : aperture.darksky.io
