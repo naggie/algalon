@@ -202,14 +202,12 @@ entities:
 # SERVICES
         - name            : NTP Master
           category        : Services
-          entity          : HttpSaas
-          url             : http://ntpmaster.darksky.io/
-          description     : Darksky.io Private Stratum 1 NTP Server
-          icon            : fa-hdd-o
-          fingerprint     : "NTP_SERVER_ONLINE"
+          entity          : Ntp
+          hostname        : ntpmaster.darksky.io
+          description     : Private Stratum 1 NTP Server
+          icon            : fa-history fa-flip-horizontal
           powered_by_url  : http://www.ntp.org/
           powered_by_name : NTPd
-          interval        : 5
 
 # SERVERS
         - name            : Aperture
