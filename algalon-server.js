@@ -84,3 +84,8 @@ server.listen(
 	console.log('alagalon: %s listening at %s', server.name, server.url)
 })
 
+
+// Un-crash!
+process.on('uncaughtException', function(error) {
+	console.log('Uncaught exception: ' + error.stack+"\n");
+})
