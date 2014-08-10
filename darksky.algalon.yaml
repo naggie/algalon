@@ -205,7 +205,6 @@ entities:
           entity          : Ntp
           hostname        : ntpmaster.darksky.io
           description     : Private Stratum 1 NTP Server
-          icon            : fa-history fa-flip-horizontal
           powered_by_url  : http://www.ntp.org/
           powered_by_name : NTPd
 
@@ -214,7 +213,6 @@ entities:
           entity          : Dns
           hostname        : ns0.darksky.io
           description     : Reference DNS server
-          icon            : fa-history fa-flip-horizontal
           powered_by_url  : http://www.bind9.net/
           powered_by_name : NTPd
 
