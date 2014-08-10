@@ -211,7 +211,7 @@ entities:
         - name            : DNS Master
           category        : Services
           entity          : Dns
-          hostname        : ns0.darksky.io
+          ip              : 172.18.0.1
           description     : Reference DNS server
           powered_by_url  : http://www.bind9.net/
           powered_by_name : NTPd
