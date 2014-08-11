@@ -26,7 +26,7 @@ var aggr     = new Aggr()
 
 var manifest = yaml.safeLoad( fs.readFileSync(__dirname+'/darksky.algalon.yaml', 'utf8') )
 
-aggr.instantiateEntities(manifest.entities)
+aggr.instantiateTesters(manifest.testers)
 
 var server = restify.createServer({
 	name: manifest.name,
