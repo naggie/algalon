@@ -56,10 +56,10 @@ categories:
 #        icon     : fa-wrench
 
 
-# Entities are statically defined representations of something but may
+# Testers are statically defined representations of something but may
 # dynamically test themselves.
-# See lib/entities for class documentation
-entities:
+# See lib/testers for class documentation
+testers:
 # Sass
         - name            : Boards
           category        : SaaS
@@ -264,7 +264,7 @@ entities:
           category        : Servers
                   #...specs...
 
-# Enumerators create entities automatically at server start and periodically.
+# Enumerators create testers automatically at server start and periodically.
 # For dynamic targets which may change, such as projects, hosts, humans
 # enumerated from a directory. Not supported yet.
 enumerators:

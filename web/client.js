@@ -36,7 +36,7 @@ var init = function(data) {
 
 	// META
 	// About tab which is mandatory (may change so it's instantiated like
-	// other entities)
+	// other testers)
 	data.categories.push({
 		name:'About',
 		description:data.slogan,

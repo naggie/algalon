@@ -1,13 +1,13 @@
 ## Algalon is a web portal with monitoring features.
 
-'Entities,' represented by 'widgets' are organised by categories as tabs.
+'Testers,' represented by 'widgets' are organised by categories as tabs.
 Widgets have an initial 'state' which is then continually patched via
 websockets. Tests, which run periodically or via interrupt, can change this
-state. All entities with tests have a pass/fail/undefined state. These states
-are aggregated to form the global health of the system. Entities can be defined
+state. All testers with tests have a pass/fail/undefined state. These states
+are aggregated to form the global health of the system. Testers can be defined
 statically or produced dynamically by an 'enumerator.'
 
-Entities consist of a server-side javascript class, a client-side javascript
+Testers consist of a server-side javascript class, a client-side javascript
 class, and some CSS classes. There is currently no packaging system for this,
 but this is planned.
 
@@ -15,7 +15,7 @@ Natural dependencies will result in some failures cascading, which will reduce
 the health further. Therefore, something severe will naturally have more weight
 to it.
 
-Currently available entities:
+Currently available testers:
 
 1. `Saas`: Software as a service: will test a HTTP based service for a 200
    response optionally containing a fingerprint. Checks for any other response
