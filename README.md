@@ -7,9 +7,9 @@ state. All testers with tests have a pass/fail/undefined state. These states
 are aggregated to form the global health of the system. Testers can be defined
 statically or produced dynamically by an 'enumerator.'
 
-Testers consist of a server-side javascript class, a client-side javascript
-class, and some CSS classes. There is currently no packaging system for this,
-but this is planned.
+Testers consist of a server-side javascript class, using a client-side
+javascript Widget, and some CSS classes. There is currently no packaging system
+for this, but this is planned.
 
 Natural dependencies will result in some failures cascading, which will reduce
 the health further. Therefore, something severe will naturally have more weight
@@ -25,6 +25,8 @@ Currently available testers:
 3. `Server`: A monitoring widget similar to MLDASH, except the servers each run
    a tiny RESTful webserver. The module works in a similar way to `Saas` but
    also monitors CPU usage, temperature, RAM usage, Disk usage etc.
+4. `Ntp` : Asks the NTP server for a time, compares locally for within a 1000ms
+5. `Dns` : Tries a DNS request, looks for 11 possible errors
 
 Planned enumerators:
 
