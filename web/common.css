@@ -315,11 +315,11 @@ div.panel header {
 }
 
 .Server table {
-	font-size:0.55em;
+	font-size:0.6em;
 	margin:10px;
-	margin-top:20px;
+	margin-top:25px;
 	border-collapse: separate;
-	border-spacing:15px;
+	border-spacing:10px;
 }
 
 .Server table th {
@@ -336,8 +336,9 @@ div.panel header {
 	border:1px solid black;
 }
 
-.Server table .value {
+.Server table .value, .Server table th {
 	width:80px;
+	font-size:1.2em;
 }
 
 .Server td {

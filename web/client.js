@@ -300,33 +300,36 @@ entityWidgets['Server'] = function(parent,state) {
 		self.blinken()
 		switch(key) {
 			case 'disk_total':
-				val = humanize.filesize(val)
+				val = humanize.filesize(val,1024,0)
 				$('.storage .max.limit',template).text(val)
 			break
 			case 'mem_total':
-				val = humanize.filesize(val)
+				val = humanize.filesize(val,1024,0)
 				$('.memory .max.limit',template).text(val)
 			break
 			case 'uptime_secs':
 				$('.uptime .value',template).text((val/86400).toFixed(0)+' days')
 			break
 			case 'load_percent':
-				$('.load .value',template).text(val+'%')
+				$('.load .value',template).text(val+'%').css('color',val>100?'red':'white')
 				$('.load .bar',template).magicBar({gradient:'negative',value:val})
 			break;
 			case 'mem_used':
-				$('.memory .bar',template).magicBar({value:val,max:state['mem_total']})
-				val = humanize.filesize(val)
-				$('.memory .value',template).text(val)
+				var bar = {gradient:'negative',value:val,max:state['mem_total']}
+				$('.memory .bar',template).magicBar(bar)
+				val = humanize.filesize(val,1024,0)
+				$('.memory .value',template).text(val).css('color',$.relateColour(bar) )
 			break;
 			case 'disk_used':
-				$('.storage .bar',template).magicBar({gradient:'negative',value:val,max:state['disk_total']})
-				val = humanize.filesize(val)
-				$('.storage .value',template).text(val)
+				var bar = {gradient:'negative',value:val,max:state['disk_total']}
+				$('.storage .bar',template).magicBar()
+				val = humanize.filesize(val,1024,0)
+				$('.storage .value',template).text(val).css('color',$.relateColour(bar) )
 			break;
 			case 'temperature_c':
-				$('.temperature .value',template).html(val+'&deg;C')
-				$('.temperature .bar',template).magicBar({gradient:'negative',value:val,max:80})
+				var bar = {gradient:'negative',value:val,max:80}
+				$('.temperature .value',template).html(val+'&deg;C').css('color',$.relateColour(bar) )
+				$('.temperature .bar',template).magicBar(bar)
 			break;
 			case 'healthy':
 				if (!val)
