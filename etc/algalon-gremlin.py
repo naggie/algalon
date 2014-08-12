@@ -30,31 +30,31 @@ from os import path
 
 
 # http://www.linuxatemyram.com/
-def memory():
-	"Total and free mem in kilobytes"
-	free = commands.getstatusoutput("free")
+def memoryKB():
+    "Total and free mem in kilobytes"
 
-	if free[0]:
-		raise Exception('free is not installed')
+    with open('/proc/meminfo') as f:
+        lines = f.readlines()
 
-	numbers = re.findall(r"(\d+)",free[1])
+    # in kB
+    info = {}
 
-	if not numbers:
-		raise Exception('Invalid output from free command')
+    for line in lines:
+        m = re.search('(\w+):\s*(\d+)',line)
+        if m:
+            info[ m.group(1) ] = int( m.group(2) )
 
-	for i,number in enumerate(numbers):
-		numbers[i] = int(number)
-
-	return {
-		"total" : numbers[0],
-                # used by applications, not cache
-		"used"  : numbers[0]-numbers[7]
-	}
+    # http://www.linuxatemyram.com/
+    return {
+            "total" : info['MemTotal'],
+            # used by applications, not cache
+            "used"  : info['MemTotal'] - info['MemFree'] - info['Buffers'] - info['Cached'],
+    }
 
 
 def uptime():
 	"Uptime in seconds"
-	
+
 	if not path.exists('/proc/uptime'):
 		raise Exception('/proc/uptime not found')
 
@@ -77,7 +77,7 @@ def started():
 def load():
         "return load (avg num of processes waiting per processor) normalised to 100"
 
-        load = os.getloadavg()[0] 
+        load = os.getloadavg()[0]
         load = load/multiprocessing.cpu_count()
 	load = int(load*100)
 
@@ -209,7 +209,7 @@ def get_aggregate():
     try:
         state = {
                 # memory used in GB
-                "Memory-GB": int(memory()["used"]/1048576),
+                "Memory-GB": int(memoryKB()["used"]/1048576),
                 # total storage capacity in GB
                 "Storage-GB": int(storage()["used"]/1048576),
                 # total synchronous internet bandwidth in Mbps
@@ -220,13 +220,13 @@ def get_aggregate():
                 "Temperature-C": temperature(),
                 # uptime in days
                 "Uptime-days": int(uptime()/84600),
-                # 0-100 CPU load 
+                # 0-100 CPU load
                 "Load-percent": load(),
                 # memory in MB
-                "MemoryTotal-GB" : int(memory()["total"]/(1048576)),
+                "MemoryTotal-GB" : int(memoryKB()["total"]/1048576),
                 # total storage capacity in GB
                 "StorageTotal-GB" : int(storage()["total"]/1048576),
-                "Version" : 2,
+                "Version" : 3,
         }
         return state
 
