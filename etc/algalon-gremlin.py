@@ -43,7 +43,7 @@ def memory():
         if m:
             info[ m.group(1) ] = int( m.group(2) )
 
-    used  = info['MemTotal'] - info['MemFree'] - info['Buffers'] - info['Cached'],
+    used  = info['MemTotal'] - info['MemFree'] - info['Buffers'] - info['Cached']
 
     # http://www.linuxatemyram.com/
     return {
@@ -51,7 +51,6 @@ def memory():
             # used by applications, not cache
             "used"  : used * 1024,
     }
-
 
 def uptime():
 	"Uptime in seconds"
@@ -106,73 +105,73 @@ def storage():
 
 
 
-class traffic:
-        "Calculates traffic for given device in bytes per second. Call update() regularly, read tx and rx"
-        last_time = 0
-        last_tx_bytes = 0
-        last_rx_bytes = 0
-
-        # read these for tx/rx in Mbps
-        tx = 0
-        rx = 0
-
-        # scales, automatically set to max-ever-recorded
-        tx_max = 0
-        rx_max = 0
-
-
-        def __init__(self,dev='eth0'):
-                self.tx_file = "/sys/class/net/%s/statistics/tx_bytes" % dev
-                self.rx_file = "/sys/class/net/%s/statistics/rx_bytes" % dev
-
-                if not path.exists(self.tx_file):
-                        raise Exception("Could not find stats files for %s. Specify network device name with MLDASH_NET_DEV (without /dev/)" % dev)
-
-		last_time = time.time()
-                self.update()
-
-
-        def update(self):
-                "Call regularly to get rx and tx in Mbps"
-                current_time = time.time()
-
-                current_tx_bytes = self.getBytes('tx')
-                current_rx_bytes = self.getBytes('rx')
-
-                delta_time = current_time - self.last_time
-                delta_tx_bytes = current_tx_bytes - self.last_tx_bytes
-                delta_rx_bytes = current_rx_bytes - self.last_rx_bytes
-
-                self.last_time = current_time
-                self.last_tx_bytes = current_tx_bytes
-                self.last_rx_bytes = current_rx_bytes
-
-                self.tx = delta_tx_bytes/delta_time
-                self.rx = delta_rx_bytes/delta_time
-
-                self.tx = int(self.tx)
-                self.rx = int(self.rx)
-
-                self.tx_max = max(self.tx,self.tx_max)
-                self.rx_max = max(self.rx,self.rx_max)
-
-
-        def getBytes(self,direction):
-                "get bytes for direction: tx/rx"
-
-                if direction == 'tx':
-                        f = open(self.tx_file,'r')
-                elif direction == 'rx':
-                        f = open(self.rx_file,'r')
-                else:
-                        raise Exception('Invalid direction. Choose rx/tx')
-
-                bytes = f.readline()
-                bytes = int(bytes)
-
-                f.close()
-
-                return bytes
+#class traffic:
+#        "Calculates traffic for given device in bytes per second. Call update() regularly, read tx and rx"
+#        last_time = 0
+#        last_tx_bytes = 0
+#        last_rx_bytes = 0
+#
+#        # read these for tx/rx in Mbps
+#        tx = 0
+#        rx = 0
+#
+#        # scales, automatically set to max-ever-recorded
+#        tx_max = 0
+#        rx_max = 0
+#
+#
+#        def __init__(self,dev='eth0'):
+#                self.tx_file = "/sys/class/net/%s/statistics/tx_bytes" % dev
+#                self.rx_file = "/sys/class/net/%s/statistics/rx_bytes" % dev
+#
+#                if not path.exists(self.tx_file):
+#                        raise Exception("Could not find stats files for %s. Specify network device name with MLDASH_NET_DEV (without /dev/)" % dev)
+#
+#		last_time = time.time()
+#                self.update()
+#
+#
+#        def update(self):
+#                "Call regularly to get rx and tx in Mbps"
+#                current_time = time.time()
+#
+#                current_tx_bytes = self.getBytes('tx')
+#                current_rx_bytes = self.getBytes('rx')
+#
+#                delta_time = current_time - self.last_time
+#                delta_tx_bytes = current_tx_bytes - self.last_tx_bytes
+#                delta_rx_bytes = current_rx_bytes - self.last_rx_bytes
+#
+#                self.last_time = current_time
+#                self.last_tx_bytes = current_tx_bytes
+#                self.last_rx_bytes = current_rx_bytes
+#
+#                self.tx = delta_tx_bytes/delta_time
+#                self.rx = delta_rx_bytes/delta_time
+#
+#                self.tx = int(self.tx)
+#                self.rx = int(self.rx)
+#
+#                self.tx_max = max(self.tx,self.tx_max)
+#                self.rx_max = max(self.rx,self.rx_max)
+#
+#
+#        def getBytes(self,direction):
+#                "get bytes for direction: tx/rx"
+#
+#                if direction == 'tx':
+#                        f = open(self.tx_file,'r')
+#                elif direction == 'rx':
+#                        f = open(self.rx_file,'r')
+#                else:
+#                        raise Exception('Invalid direction. Choose rx/tx')
+#
+#                bytes = f.readline()
+#                bytes = int(bytes)
+#
+#                f.close()
+#
+#                return bytes
 
 def temperature():
 	"""
@@ -191,7 +190,7 @@ def temperature():
 	temps = re.findall(r"(\d{2}.\d+)",sensors[1],re.M)
 
 	if not temps:
-		raise Exception('Invalid output from sensors command')
+		raise Exception('No temperature sensors found')
 
 	for i,temp in enumerate(temps):
 		temps[i] = float(temp)
@@ -205,22 +204,29 @@ def temperature():
     #def __init__(self):
             #traffic = traffic(os.getenv('DEV') or 'eth0')
 
-def get_aggregate():
+def aggregate():
+    state = {}
+
+    try:
+        state["temperature_c"] = temperature()
+    except (Exception) as e:
+        pass
+
     try:
         mem = memory()
         stor = storage()
-        state = {
-                "mem_used": mem["used"],
-                "mem_total" : mem["total"],
-                "disk_used": stor["used"],
-                "disk_total" : stor["total"],
-             #   "TX-Mbps": int(traffic.tx/131072),
-             #   "RX-Mbps": int(traffic.rx/131072),
-                "temperature_c": temperature(),
-                "uptime_days": uptime(),
-                "load_percent": load(),
-                "Version" : 3,
-        }
+
+        state["mem_used"] = mem["used"]
+        state["mem_total" ] = mem["total"]
+        state["disk_used"] = stor["used"]
+        state["disk_total" ] = stor["total"]
+        #state[ "TX-Mbps"] = int(traffic.tx/131072),
+        #state[ "RX-Mbps"] = int(traffic.rx/131072),
+        state["temperature_c"] = temperature()
+        state["uptime_secs"] = uptime()
+        state["load_percent"] = load()
+        state["Version" ] = 4
+
         return state
 
     except (requests.HTTPError,requests.ConnectionError, requests.Timeout) as e:
@@ -230,9 +236,9 @@ def get_aggregate():
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write(get_aggregate())
+        self.write(aggregate())
 
-print get_aggregate()
+print aggregate()
 
 if __name__ == "__main__":
     application = tornado.web.Application([ (r"/", MainHandler), ])
