@@ -28,7 +28,6 @@ import multiprocessing
 import commands
 from os import path
 
-
 # http://www.linuxatemyram.com/
 def memoryKB():
     "Total and free mem in kilobytes"
@@ -209,9 +208,9 @@ def get_aggregate():
     try:
         state = {
                 # memory used in GB
-                "Memory-GB": int(memoryKB()["used"]/1048576),
+                "Memory-GB": round(memoryKB()["used"]/1048576,3),
                 # total storage capacity in GB
-                "Storage-GB": int(storage()["used"]/1048576),
+                "Storage-GB": round(storage()["used"]/1048576,3),
                 # total synchronous internet bandwidth in Mbps
                 # false if this is unknown
              #   "TX-Mbps": int(traffic.tx/131072),
@@ -223,7 +222,7 @@ def get_aggregate():
                 # 0-100 CPU load
                 "Load-percent": load(),
                 # memory in MB
-                "MemoryTotal-GB" : int(memoryKB()["total"]/1048576),
+                "MemoryTotal-GB" : round(memoryKB()["total"]/1048576,2),
                 # total storage capacity in GB
                 "StorageTotal-GB" : int(storage()["total"]/1048576),
                 "Version" : 3,
@@ -239,6 +238,7 @@ class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.write(get_aggregate())
 
+print get_aggregate()
 
 if __name__ == "__main__":
     application = tornado.web.Application([ (r"/", MainHandler), ])
