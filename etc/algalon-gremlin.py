@@ -208,9 +208,9 @@ def get_aggregate():
     try:
         state = {
                 # memory used in GB
-                "Memory-GB": round(memoryKB()["used"]/1048576,3),
+                "Memory-GB": round(memoryKB()["used"]/1048576.0,2),
                 # total storage capacity in GB
-                "Storage-GB": round(storage()["used"]/1048576,3),
+                "Storage-GB": round(storage()["used"]/1048576.0,1),
                 # total synchronous internet bandwidth in Mbps
                 # false if this is unknown
              #   "TX-Mbps": int(traffic.tx/131072),
@@ -222,9 +222,9 @@ def get_aggregate():
                 # 0-100 CPU load
                 "Load-percent": load(),
                 # memory in MB
-                "MemoryTotal-GB" : round(memoryKB()["total"]/1048576,2),
+                "MemoryTotal-GB" : round(memoryKB()["total"]/1048576.0,2),
                 # total storage capacity in GB
-                "StorageTotal-GB" : int(storage()["total"]/1048576),
+                "StorageTotal-GB" : int(storage()["total"]/1048576.0),
                 "Version" : 3,
         }
         return state
