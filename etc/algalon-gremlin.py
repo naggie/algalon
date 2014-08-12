@@ -28,9 +28,11 @@ import multiprocessing
 import commands
 from os import path
 
+
+# http://www.linuxatemyram.com/
 def memory():
 	"Total and free mem in kilobytes"
-	free = commands.getstatusoutput("free | grep 'Mem:'")
+	free = commands.getstatusoutput("free")
 
 	if free[0]:
 		raise Exception('free is not installed')
@@ -45,7 +47,8 @@ def memory():
 
 	return {
 		"total" : numbers[0],
-		"used"  : numbers[1]
+                # used by applications, not cache
+		"used"  : numbers[0]-numbers[7]
 	}
 
 
@@ -223,6 +226,7 @@ def get_aggregate():
                 "MemoryTotal-GB" : int(memory()["total"]/(1048576)),
                 # total storage capacity in GB
                 "StorageTotal-GB" : int(storage()["total"]/1048576),
+                "Version" : 2,
         }
         return state
 
