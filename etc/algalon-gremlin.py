@@ -222,7 +222,6 @@ def aggregate():
         state["disk_total" ] = stor["total"]
         #state[ "TX-Mbps"] = int(traffic.tx/131072),
         #state[ "RX-Mbps"] = int(traffic.rx/131072),
-        state["temperature_c"] = temperature()
         state["uptime_secs"] = uptime()
         state["load_percent"] = load()
         state["version" ] = 4
