@@ -29,8 +29,8 @@ import commands
 from os import path
 
 # http://www.linuxatemyram.com/
-def memoryKB():
-    "Total and free mem in kilobytes"
+def memory():
+    "Total and free mem in bytes"
 
     with open('/proc/meminfo') as f:
         lines = f.readlines()
@@ -43,11 +43,13 @@ def memoryKB():
         if m:
             info[ m.group(1) ] = int( m.group(2) )
 
+    used  = info['MemTotal'] - info['MemFree'] - info['Buffers'] - info['Cached'],
+
     # http://www.linuxatemyram.com/
     return {
-            "total" : info['MemTotal'],
+            "total" : info['MemTotal'] * 1024,
             # used by applications, not cache
-            "used"  : info['MemTotal'] - info['MemFree'] - info['Buffers'] - info['Cached'],
+            "used"  : used * 1024,
     }
 
 
@@ -65,12 +67,11 @@ def uptime():
 	seconds = float(seconds)
 	seconds = int(seconds)
 
-	return seconds
+	return int(seconds)
 
 def started():
 	"Unix time when the server was started"
 	return int( time.time() - uptime() )
-
 
 
 def load():
@@ -206,25 +207,18 @@ def temperature():
 
 def get_aggregate():
     try:
+        mem = memory()
+        stor = storage()
         state = {
-                # memory used in GB
-                "Memory-GB": round(memoryKB()["used"]/1048576.0,2),
-                # total storage capacity in GB
-                "Storage-GB": round(storage()["used"]/1048576.0,1),
-                # total synchronous internet bandwidth in Mbps
-                # false if this is unknown
+                "mem_used": mem["used"],
+                "mem_total" : mem["total"],
+                "disk_used": stor["used"],
+                "disk_total" : stor["total"],
              #   "TX-Mbps": int(traffic.tx/131072),
              #   "RX-Mbps": int(traffic.rx/131072),
-                # temp in degrees celcius
-                "Temperature-C": temperature(),
-                # uptime in days
-                "Uptime-days": int(uptime()/84600),
-                # 0-100 CPU load
-                "Load-percent": load(),
-                # memory in MB
-                "MemoryTotal-GB" : round(memoryKB()["total"]/1048576.0,2),
-                # total storage capacity in GB
-                "StorageTotal-GB" : int(storage()["total"]/1048576.0),
+                "temperature_c": temperature(),
+                "uptime_days": uptime(),
+                "load_percent": load(),
                 "Version" : 3,
         }
         return state
