@@ -225,7 +225,7 @@ def aggregate():
         state["temperature_c"] = temperature()
         state["uptime_secs"] = uptime()
         state["load_percent"] = load()
-        state["Version" ] = 4
+        state["version" ] = 4
 
         return state
 

@@ -299,22 +299,32 @@ entityWidgets['Server'] = function(parent,state) {
 	this.set =  function(key,val) {
 		self.blinken()
 		switch(key) {
-			case 'StorageTotal-GB': $('.storage .max.limit',template).text(val+'GB'); break;
-			case 'MemoryTotal-GB': $('.memory .max.limit',template).text(val+'GB'); break;
-			case 'Uptime-days': $('.uptime .value',template).text(val+' days'); break;
-			case 'Load-percent':
+			case 'disk_total':
+				val = humanize.filesize(val)
+				$('.storage .max.limit',template).text(val)
+			break
+			case 'mem_total':
+				val = humanize.filesize(val)
+				$('.memory .max.limit',template).text(val)
+			break
+			case 'uptime_secs':
+				$('.uptime .value',template).text((val/86400).toFixed(0)+' days')
+			break
+			case 'load_percent':
 				$('.load .value',template).text(val+'%')
 				$('.load .bar',template).magicBar({gradient:'negative',value:val})
 			break;
-			case 'Memory-GB':
-				$('.memory .value',template).text(val+'GB')
-				$('.memory .bar',template).magicBar({value:val,max:state['MemoryTotal-GB']})
+			case 'mem_used':
+				$('.memory .bar',template).magicBar({value:val,max:state['mem_total']})
+				val = humanize.filesize(val)
+				$('.memory .value',template).text(val)
 			break;
-			case 'Storage-GB':
-				$('.storage .value',template).text(val+'GB')
-				$('.storage .bar',template).magicBar({gradient:'negative',value:val,max:state['StorageTotal-GB']})
+			case 'disk_used':
+				$('.storage .bar',template).magicBar({gradient:'negative',value:val,max:state['disk_total']})
+				val = humanize.filesize(val)
+				$('.storage .value',template).text(val)
 			break;
-			case 'Temperature-C':
+			case 'temperature_c':
 				$('.temperature .value',template).html(val+'&deg;C')
 				$('.temperature .bar',template).magicBar({gradient:'negative',value:val,max:80})
 			break;
