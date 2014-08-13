@@ -331,8 +331,8 @@ div.panel header {
 }
 
 .Server .bar {
-	width:180px;
-	height:5px;
+	width:90px;
+	height:1px;
 }
 
 .Server table .value {
