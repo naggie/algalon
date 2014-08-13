@@ -168,9 +168,10 @@ entityWidgets['Saas'] = function(parent,state) {
 	// better system later
 	$('p',template).text(state.description)
 
-	template.on('click',function() {
-		window.open(state.url)
-	})
+	if (state.url)
+		template.on('click',function() {
+			window.open(state.url)
+		})
 
 
 	this.blinken = function() {
