@@ -205,14 +205,16 @@ entityWidgets['Saas'] = function(parent,state) {
 }
 
 // fake widgets to left-align
-// TODO: do for each section
+// each category *probably* has coherent widgets
 var addDummies = function() {
-	return console.log('TODO: dummies')
-	var dummy = $($('section > *')[0].outerHTML)
-	dummy.addClass('dummy').empty()
+	$('section').each(function(){
+		var dummy = $($('*',this)[0].outerHTML)
+		dummy.addClass('dummy').empty()
 
-	for (var i=0;i<4;i++)
-		$('section').append(dummy)
+		for (var i=0;i<4;i++)
+			$(this).append(dummy)
+	})
+
 }
 
 // Saas widget controller/creator
