@@ -325,7 +325,7 @@ entityWidgets['Server'] = function(parent,state) {
 			break;
 			case 'disk_used':
 				var bar = {gradient:'negative',value:val,max:state['disk_total']}
-				$('.storage .bar',template).magicBar()
+				$('.storage .bar',template).magicBar(bar)
 				val = humanize.filesize(val,1024,0)
 				$('.storage .value',template).text(val).css('color',$.relateColour(bar) )
 			break;
