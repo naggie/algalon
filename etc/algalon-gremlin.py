@@ -84,7 +84,7 @@ def load():
 
 
 def storage():
-        "Return used and total disk space in kilobytes"
+        "Return used and total disk space in bytes"
         df = commands.getstatusoutput('df --total | grep total')
 
         if df[0]:
@@ -95,8 +95,8 @@ def storage():
         if not bits:
                 raise Exception('Invalid output from df command')
 
-        total = int(bits[0])
-        used = int(bits[1])
+        total = int(bits[0])*1024
+        used = int(bits[1])*1024
 
         return {
                 "total": total,
