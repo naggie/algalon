@@ -136,7 +136,7 @@ div.panel {
 	display:inline-block;
 	background:rgba(68,68,68,0.6);
 	vertical-align:top;
-	min-height:190px;
+	min-height:150px;
 	border-top:5px solid #444444;
 }
 
@@ -285,7 +285,6 @@ div.Saas div.name {
 	top:-10px;
 	display:inline-block;
 	font-size:32px;
-
 }
 
 div.Saas i.logo {
