@@ -315,7 +315,7 @@ entityWidgets['Server'] = function(parent,state) {
 			break
 			case 'load_percent':
 				$('.load .value',template).text(val+'%').css('color',val>100?'red':'white')
-				$('.load .bar',template).magicBar({gradient:'negative',value:val})
+				$('.load .bar',template).magicBar({gradient:'neutral',value:val})
 			break;
 			case 'mem_used':
 				var bar = {gradient:'negative',value:val,max:state['mem_total']}
