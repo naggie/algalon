@@ -20,6 +20,7 @@ import copy
 import os
 import sys
 import re
+import string
 
 import tornado.ioloop
 import tornado.web
@@ -104,6 +105,31 @@ def storage():
         }
 
 
+def ups():
+    "Get UPS stats from apcupsd via apcaccess"
+
+    if not path.exists('/sbin/apcaccess'):
+            raise Exception('/sbin/apcaccess not found')
+
+    dump = commands.getstatusoutput('/sbin/apcaccess')
+
+    if dump[0]:
+            raise Exception('Failed to run apcaccess command')
+
+    lines = string.split(dump[1],"\n")
+
+    info = {}
+    for line in lines:
+        m = re.search('(\w+)\s*:\s*(\d+)',line)
+        if m:
+            info[ m.group(1) ] = int( m.group(2) )
+
+    return {
+        'battery_percent':info['BCHARGE'],
+        'battery_minutes':info['TIMELEFT'],
+        'line_voltage':info['LINEV'],
+        'ups_load_percent':info['LOADPCT'],
+    }
 
 #class traffic:
 #        "Calculates traffic for given device in bytes per second. Call update() regularly, read tx and rx"
@@ -210,7 +236,12 @@ def aggregate():
     try:
         state["temperature_c"] = temperature()
     except (Exception) as e:
-        pass
+        print e
+
+    try:
+        state = dict( ups().items() + state.items() )
+    except (Exception) as e:
+        print e
 
     try:
         mem = memory()
