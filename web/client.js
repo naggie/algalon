@@ -331,8 +331,24 @@ entityWidgets['Server'] = function(parent,state) {
 			break;
 			case 'temperature_c':
 				var bar = {gradient:'negative',value:val,max:80}
+				$('.temperature',template).show()
 				$('.temperature .value',template).html(val+'&deg;C').css('color',$.relateColour(bar) )
 				$('.temperature .bar',template).magicBar(bar)
+			break;
+			case 'battery_percent':
+				var bar = {gradient:'positive',value:val}
+				$('.battery',template).show()
+				$('.battery .value',template).css('color',$.relateColour(bar) )
+				$('.battery .bar',template).magicBar(bar)
+			break;
+			case 'battery_minutes':
+				$('.battery .value',template).text(val+' minutes')
+			break;
+			case 'line_voltage':
+				var bar = {gradient:'bipolar',value:val,min:216,max:253}
+				$('.voltage',template).show()
+				$('.voltage .value',template).text(val+'V').css('color',$.relateColour(bar) )
+				$('.voltage .bar',template).magicBar(bar)
 			break;
 			case 'healthy':
 				if (!val)

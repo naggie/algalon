@@ -17,7 +17,7 @@ to it.
 
 Currently available testers:
 
-1. `Saas`: Software as a service: will test a HTTP based service for a 200
+1. `HttpSaas`: Software as a service: will test a HTTP based service for a 200
    response optionally containing a fingerprint. Checks for any other response
    code, a timeout, or incorrect service.
 2. `Hacker`: A Static profile of a user. Automatically generates gravatar URL.
