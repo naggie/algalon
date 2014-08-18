@@ -210,7 +210,7 @@ entityWidgets['Saas'] = function(parent,state) {
 // each category *probably* has coherent widgets
 var addDummies = function() {
 	$('section').each(function(){
-		var dummy = $($('*',this)[0].outerHTML)
+		var dummy = $($('*',this)[1].outerHTML)
 		dummy.addClass('dummy').empty()
 
 		for (var i=0;i<4;i++)
