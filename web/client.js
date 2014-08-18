@@ -39,7 +39,7 @@ var init = function(data) {
 	// other testers)
 	data.categories.push({
 		name:'About',
-		description:data.slogan,
+		//description:data.slogan,
 		icon:'fa-info-circle',
 	})
 	data.states['about'] = {
@@ -59,6 +59,7 @@ var init = function(data) {
 		tab.set('alerts',data.alerts[cat.name])
 		tabs[cat.name] = tab
 		sections[cat.name] = section
+		$('<p />').text(cat.description).addClass('desc').appendTo(section.jqo)
 	}
 
 	for (var i in data.states)
