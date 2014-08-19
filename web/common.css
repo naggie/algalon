@@ -157,6 +157,15 @@ div.panel div.status {
 	font-family:sans-serif;
 }
 
+.Saas .link {
+	font-family:sans-serif;
+	font-weight:100;
+	font-size:0.73em;
+	background:#444444;
+	opacity:0.7;
+	padding:6px;
+}
+
 /* TODO: base widget/panel class inherited by Hacker and Saas */
 
 div div.error {

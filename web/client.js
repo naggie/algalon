@@ -162,17 +162,23 @@ entityWidgets['Saas'] = function(parent,state) {
 
 	// stuff which does not need to change
 	// and initial state
-	$('i',template).addClass(state.icon || 'fa-cubes')
+	$('i.logo',template).addClass(state.icon || 'fa-cubes')
 	$('.name',template).text(state.name)
 	template.removeClass('template')
 
 	// better system later
 	$('p',template).text(state.description)
 
-	if (state.url)
+	if (state.url) {
+		$('.link',template).show()
+		$('.link a',template)
+			.text(state.url)
+// TODO			.attr('href',state.url)
+
 		template.on('click',function() {
 			window.open(state.url)
 		})
+	}
 
 
 	this.blinken = function() {
