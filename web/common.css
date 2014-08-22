@@ -136,7 +136,7 @@ div.panel {
 	display:inline-block;
 	background:rgba(68,68,68,0.6);
 	vertical-align:top;
-	min-height:150px;
+	min-height:180px;
 	border-top:5px solid #444444;
 }
 
@@ -354,6 +354,9 @@ div.panel header {
 
 .Server.fail table {
 	margin:0px;
+}
+.Server .name {
+	font-size:26px;
 }
 
 .hidden {

@@ -378,3 +378,31 @@ entityWidgets['Server'] = function(parent,state) {
 	for (var i in state)
 		this.set(i,state[i])
 }
+
+// probably should be a method of a widget parent class
+// TODO request fullscreen just for this element?
+// TODO center element (free above)
+var JUMBOTRON = function(selector) {
+	var jqo = $(selector)
+	// destroy all other instances
+	// hide everything else
+	// calculate zoom level
+	var height_ratio = $(window).height()/jqo.height()
+	var width_ratio  = $(window).width()/jqo.width()
+
+	// select smallest, this becomes the zoom level
+	var ratio = Math.min(width_ratio,height_ratio)
+
+	jqo.css({
+		'zoom':ratio,
+		'position':'fixed',
+		'z-index':999999,
+	})
+
+	jqo.detach()
+	$('body').empty().append(jqo).css('border','none')
+	jqo.css('margin',0)
+
+	// unsubscribe from averything else
+	// zoom!
+}
