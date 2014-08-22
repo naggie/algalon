@@ -221,7 +221,7 @@ div.panel.dummy {
 	display:none !important;
 }
 
-
+/*for dummy*/ .Hacker { width:160px; }
 .Hacker img {
 	width:160;
 	height:160;
