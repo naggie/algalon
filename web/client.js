@@ -292,7 +292,7 @@ entityWidgets['Server'] = function(parent,state) {
 	// static stuff
 	$('.name',template).text(state.name)
 	template.removeClass('template')
-
+console.log(state)
 	// HACK TODO CHANGEME fit in Frill's ridiculously long server names
 	if (state.name.length > 10)
 		$('.name',template).css('font-size','0.85em')
@@ -310,10 +310,12 @@ entityWidgets['Server'] = function(parent,state) {
 		self.blinken()
 		switch(key) {
 			case 'disk_total':
+				state['disk_total'] = val
 				val = humanize.filesize(val,1024,0)
 				$('.storage .max.limit',template).text(val)
 			break
 			case 'mem_total':
+				state['mem_total'] = val
 				val = humanize.filesize(val,1024,0)
 				$('.memory .max.limit',template).text(val)
 			break
@@ -326,6 +328,7 @@ entityWidgets['Server'] = function(parent,state) {
 			break;
 			case 'mem_used':
 				var bar = {gradient:'negative',value:val,max:state['mem_total']}
+				console.log(bar)
 				$('.memory .bar',template).magicBar(bar)
 				val = humanize.filesize(val,1024,0)
 				$('.memory .value',template).text(val).css('color',$.relateColour(bar) )
