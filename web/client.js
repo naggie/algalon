@@ -11,6 +11,18 @@ $(function() {
 		url      : 'data',
 		success  : init,
 	})
+
+	sound.play('welcome')
+})
+
+
+var sound = new Howl({
+	urls: ['sprites.ogg'],
+	sprite: {
+		error:[0,2400],
+		success:[2400,766],
+		welcome:[3393,1074],
+	}
 })
 
 var socket = io.connect(undefined,{
@@ -29,6 +41,7 @@ socket.on('reconnect',function() {
 	$('.splash').show().text('Reloading...')
 	setTimeout(function(){location.reload()},800)
 })
+
 
 var init = function(data) {
 	var cats = $('#tabs')
@@ -292,7 +305,7 @@ entityWidgets['Server'] = function(parent,state) {
 	// static stuff
 	$('.name',template).text(state.name)
 	template.removeClass('template')
-console.log(state)
+
 	// HACK TODO CHANGEME fit in Frill's ridiculously long server names
 	if (state.name.length > 10)
 		$('.name',template).css('font-size','0.85em')
@@ -328,7 +341,6 @@ console.log(state)
 			break;
 			case 'mem_used':
 				var bar = {gradient:'negative',value:val,max:state['mem_total']}
-				console.log(bar)
 				$('.memory .bar',template).magicBar(bar)
 				val = humanize.filesize(val,1024,0)
 				$('.memory .value',template).text(val).css('color',$.relateColour(bar) )
