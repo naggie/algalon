@@ -27,7 +27,9 @@ var aggr     = new Aggr()
 var manifest = yaml.safeLoad( fs.readFileSync(__dirname+'/darksky.algalon.yaml', 'utf8') )
 
 aggr.instantiateTesters(manifest.testers)
-aggr.instantiateHooks(manifest.hooks)
+
+if (!process.env.NOHOOKS)
+	aggr.instantiateHooks(manifest.hooks)
 
 var server = restify.createServer({
 	name: manifest.name,
