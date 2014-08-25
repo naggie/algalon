@@ -93,7 +93,15 @@ var init = function(data) {
 	socket.on('destroy',function(id){ instances[id] && instances[id].destroy(key,val) })
 	socket.on('create',function(id,state){ instances[id] && createInstance(state) })
 	socket.on('alerts',function(cat,count){ tabs[cat] && tabs[cat].set('alerts',count) })
-	socket.on('health',function(percent){ healthTab.set('health',percent) })
+
+	socket.on('health',function(percent,rel){
+		if (rel > 0)
+			sound.play('success')
+		else if (rel < 0)
+			sound.play('error')
+
+		healthTab.set('health',percent)
+	})
 }
 
 var createInstance = function(state) {
