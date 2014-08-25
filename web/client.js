@@ -95,6 +95,7 @@ var init = function(data) {
 	socket.on('alerts',function(cat,count){ tabs[cat] && tabs[cat].set('alerts',count) })
 
 	socket.on('health',function(percent,rel){
+		console.log(rel)
 		if (rel > 0)
 			sound.play('success')
 		else if (rel < 0)
