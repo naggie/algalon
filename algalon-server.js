@@ -71,13 +71,13 @@ server.get('/data',function(req,res,next) {
 	})
 })
 
-server.get(/export.*/,function(req,res,next) {
+server.get(/exports.*/,function(req,res,next) {
 	// YAY HACKS!
-	req.url = req.url.substr('/export'.length)
+	req.url = req.url.substr('/exports'.length)
 	req.path = function(){return req.url}
 
 	var serve = restify.serveStatic({
-		directory:__dirname+'/srv/',
+		directory:__dirname+'/exports/',
 		default:'index.html',
 		//maxAge:3600,
 	})

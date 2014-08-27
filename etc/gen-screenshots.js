@@ -4,7 +4,7 @@ var fs       = require('fs')
 var async    = require('async')
 var webshot  = require('webshot')
 
-var manifest = yaml.safeLoad( fs.readFileSync(__dirname+'/darksky.algalon.yaml', 'utf8') )
+var manifest = yaml.safeLoad( fs.readFileSync(__dirname+'/../darksky.algalon.yaml', 'utf8') )
 
 
 //var options = {
@@ -14,7 +14,7 @@ var manifest = yaml.safeLoad( fs.readFileSync(__dirname+'/darksky.algalon.yaml',
 //}
 
 
-var dir = __dirname+'/web/'
+var dir = __dirname+'/../exports'
 
 var options = {
 	screenSize: { width: 330 , height: 768*330/1366 },
