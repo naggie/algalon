@@ -188,7 +188,11 @@ entityWidgets['Saas'] = function(parent,state) {
 	template.removeClass('template')
 
 	if (state.thumbnail)
-		$('.thumbnail',template).attr('src',state.thumbnail).show(100)
+		$('.thumbnail',template).attr('src',state.thumbnail)
+			.show().css('opacity',0)
+			.on('load',function() {
+			$(this).animate({'opacity':1})
+		})
 
 	// better system later
 	$('p',template).text(state.description)

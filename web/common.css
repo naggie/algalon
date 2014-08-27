@@ -136,7 +136,6 @@ div.panel {
 	display:inline-block;
 	background:rgba(68,68,68,0.6);
 	vertical-align:top;
-	min-height:180px;
 	border-top:5px solid #444444;
 }
 
@@ -367,5 +366,4 @@ div.panel header {
 	width:330px;
 	height:186px;
 	background:white;
-	opacity:0.9;
 }
