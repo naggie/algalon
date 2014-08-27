@@ -71,6 +71,20 @@ server.get('/data',function(req,res,next) {
 	})
 })
 
+server.get(/export.*/,function(req,res,next) {
+	// YAY HACKS!
+	req.url = req.url.substr('/export'.length)
+	req.path = function(){return req.url}
+
+	var serve = restify.serveStatic({
+		directory:__dirname+'/srv/',
+		default:'index.html',
+		//maxAge:3600,
+	})
+
+	serve(req,res,next)
+})
+
 // web dashboard
 server.get(/.+/,restify.serveStatic({
 	directory:__dirname+'/web/',
