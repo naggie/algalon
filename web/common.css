@@ -297,9 +297,8 @@ div.Saas div.name {
 	font-size:32px;
 }
 
-div.Saas i.logo {
-	padding:10px;
-	margin-right:10px;
+div.Saas .name {
+	padding:20px 10px 0 30px;
 }
 
 div.panel header {
@@ -362,4 +361,11 @@ div.panel header {
 
 .hidden {
 	display:none;
+}
+
+.thumbnail {
+	width:330px;
+	height:186px;
+	background:white;
+	opacity:0.9;
 }

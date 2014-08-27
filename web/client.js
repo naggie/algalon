@@ -184,9 +184,11 @@ entityWidgets['Saas'] = function(parent,state) {
 
 	// stuff which does not need to change
 	// and initial state
-	$('i.logo',template).addClass(state.icon || 'fa-cubes')
 	$('.name',template).text(state.name)
 	template.removeClass('template')
+
+	if (state.thumbnail)
+		$('.thumbnail',template).attr('src',state.thumbnail).show(100)
 
 	// better system later
 	$('p',template).text(state.description)
