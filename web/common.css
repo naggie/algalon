@@ -297,7 +297,7 @@ div.Saas div.name {
 }
 
 div.Saas .name {
-	padding:20px 10px 0 30px;
+	padding:20px 10px 0 7px;
 }
 
 div.panel header {
@@ -366,4 +366,5 @@ div.panel header {
 	width:330px;
 	height:186px;
 	background:white;
+	margin-bottom:-4px; /*???*/
 }
