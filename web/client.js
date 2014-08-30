@@ -347,8 +347,8 @@ entityWidgets['Server'] = function(parent,state) {
 				val = humanize.filesize(val,1024,0)
 				$('.memory .max.limit',template).text(val)
 			break
-			case 'uptime_secs':
-				$('.uptime .value',template).text((val/86400).toFixed(0)+' days')
+			case 'uptime_days':
+				$('.uptime .value',template).text(val+' days')
 			break
 			case 'load_percent':
 				$('.load .value',template).text(val+'%').css('color',val>100?'red':'white')
