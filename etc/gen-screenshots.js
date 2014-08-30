@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+// Current phantomjs binaires (28-08-2014) still don't have WOFF support. Get a
+// hacked binary then pass the binary path as an option, phantomPath.
+
 var yaml     = require('js-yaml')
 var fs       = require('fs')
 var async    = require('async')
