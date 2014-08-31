@@ -3,9 +3,6 @@ var instances = {}
 var sections = {}
 var entityWidgets = {}
 
-// TODO: dummy instances to help alignment
-// // TODO assertions for parent selector
-
 $(function() {
 	$.ajax({
 		url      : 'data',
@@ -248,7 +245,7 @@ var addDummies = function() {
 		dummy.addClass('dummy').empty()
 
 		for (var i=0;i<4;i++)
-			$(this).append(dummy)
+			dummy.clone().appendTo(this)
 	})
 
 }
