@@ -43,6 +43,7 @@ socket.on('reconnect',function() {
 var init = function(data) {
 	var cats = $('#tabs')
 	var article = $('article')
+	$('#name,title').text(data.name)
 
 	// META
 	// About tab which is mandatory (may change so it's instantiated like
