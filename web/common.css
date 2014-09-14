@@ -368,3 +368,38 @@ div.panel header {
 	background:white;
 	margin-bottom:-5px; /*???*/
 }
+
+.Log td,.Log th {
+	padding:10px;
+}
+.Log td {
+	font-family:sans-serif;
+	font-weight:100;
+	font-size:19px;
+	width:24%;
+}
+
+.Log td.led::after {
+	content:'\25cf';
+	font-size:42px;
+}
+
+.Log td.led {
+	text-align:center;
+	width:50px;
+}
+
+.Log td.fail { color:red;}
+.Log td.pass { color:#00ff00;}
+
+.Log table {
+	display:inline-block;
+	width:100%;
+	background:rgba(68,68,68,0.6);
+	text-align:left;
+	border-collapse:collapse;
+}
+
+.Log tr:nth-child(odd) {
+	background:#444444;
+}

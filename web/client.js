@@ -60,6 +60,18 @@ var init = function(data) {
 		class:'About',
 	}
 
+	data.categories.push({
+		name:'Log',
+		description:'Filtered events. Glitches are removed.',
+		icon:'fa-exclamation-circle',
+	})
+	data.states['log'] = {
+		log:data.log,
+		category:'Log',
+		class:'Log',
+		id:'EventLog'
+	}
+
 	for (var i in data.categories) {
 		var cat = data.categories[i]
 		var tab = new Tab(cats,cat)
@@ -101,6 +113,8 @@ var init = function(data) {
 
 		healthTab.set('health',percent)
 	})
+
+	socket.on('event',instances['EventLog'].addEvent)
 }
 
 var createInstance = function(state) {
@@ -288,23 +302,6 @@ entityWidgets['About'] = function(parent,state) {
 
 	$('img',template).attr('src',state.imgurl)
 	$('.description',template).text(state.description)
-
-	// stuff which does change
-	this.set =  function(key,val) {
-		switch(key) {
-			case 'healthy':
-				if (!val)
-					template.removeClass('pass').addClass('fail')
-				else
-					template.removeClass('fail').addClass('pass')
-			break;
-			default:
-				console.error('Unknown Hacker widget key:',key)
-		}
-	}
-
-	if (typeof state.healthy !== 'undefined')
-		this.set('healthy',state.healthy)
 }
 
 // Saas widget controller/creator
@@ -433,4 +430,25 @@ var JUMBOTRON = function(selector) {
 
 	// unsubscribe from averything else
 	// zoom!
+}
+
+// Saas widget controller/creator
+// static stuff directly, dynamic stuff with .set()
+entityWidgets['Log'] = function(parent,state) {
+	// TODO inheritance from generic Widget class
+	var template = $( $('.Log.template')[0].outerHTML )
+	parent.append(template)
+	template.removeClass('template')
+	table = $('table',template)
+
+	this.addEvent = function(e) {
+		table.append('<tr><td class="led '+e.class+'"></td><td>'
+				+Date(e.date)+'</td><td>'
+				+e.name+'</td><td>'
+				+e.message+'</td><td>'
+				+e.category+'</td></tr>')
+	}
+
+	for (var i in state.log)
+		this.addEvent(state.log[i])
 }
