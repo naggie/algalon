@@ -381,12 +381,13 @@ div.panel header {
 
 .Log td.led::after {
 	content:'\25cf';
-	font-size:42px;
+	font-size:52px;
 }
 
 .Log td.led {
 	text-align:center;
 	width:50px;
+	padding:0;
 }
 
 .Log td.fail { color:red;}

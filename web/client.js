@@ -443,7 +443,7 @@ entityWidgets['Log'] = function(parent,state) {
 
 	this.addEvent = function(e) {
 		table.append('<tr><td class="led '+e.class+'"></td><td>'
-				+Date(e.date)+'</td><td>'
+				+new Date(e.date)+'</td><td>'
 				+e.name+'</td><td>'
 				+e.message+'</td><td>'
 				+e.category+'</td></tr>')
