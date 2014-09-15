@@ -390,8 +390,8 @@ div.panel header {
 	padding:0;
 }
 
-.Log td.fail { color:red;}
-.Log td.pass { color:#00ff00;}
+.Log td.broken { color:red;}
+.Log td.fixed { color:#00ff00;}
 
 .Log table {
 	display:inline-block;
