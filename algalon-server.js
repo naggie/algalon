@@ -66,8 +66,8 @@ aggr.on('event',function(e){
 		eventLog.splice(0,eventLog.length-50)
 
 	console.log(
-			// unicode circle, red/green ansi
-			(e.class == 'fail')?'\033[31m\u25cf\033[0m':'\033[32m\u25cf\033[0m'
+		// unicode circle, red/green ansi
+		(e.class == 'broken')?'\033[31m\u25cf\033[0m':'\033[32m\u25cf\033[0m'
 	,e.date+': '+e.name+': '+e.message)
 })
 

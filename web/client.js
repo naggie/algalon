@@ -442,11 +442,12 @@ entityWidgets['Log'] = function(parent,state) {
 	table = $('table',template)
 
 	this.addEvent = function(e) {
-		table.append('<tr><td class="led '+e.class+'"></td><td>'
-				+new Date(e.date)+'</td><td>'
-				+e.name+'</td><td>'
-				+e.message+'</td><td>'
-				+e.category+'</td></tr>')
+		$('<tr><td class="led '+e.class+'"></td><td>'
+			+new Date(e.date)+'</td><td>'
+			+e.name+'</td><td>'
+			+e.message+'</td><td>'
+			+e.category+'</td></tr>')
+			.appendTo(table).hide().fadeIn(1000)
 	}
 
 	for (var i in state.log)
