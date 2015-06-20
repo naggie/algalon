@@ -1,0 +1,235 @@
+# EXAMPLE ALGALON MANIFEST FILE
+#
+# Anything in exports/ will be available via HTTP
+#
+# Algalon, a portal with CI.
+#
+# TODO: configurable colour palette
+
+# Some metadata about the company
+name        : EXAMPLE, LTD
+slogan      : The research and development network
+logo        : Example-dark-bg.svg
+description : >
+        Example, Ltd. is a generic company.
+
+        This portal is powered by Algalon. Algalon keeps a watchful eye on
+        Example via regular testing. A health metric is created, which
+        represents the proportion of passing tests. Natural dependencies may
+        result in some failures cascading, which will reduce the health
+        further. Therefore, something severe will naturally have more weight
+        than something minor.
+
+port   : 80
+listen : 0.0.0.0
+
+# Categories of test instances. Used to optionally sort widgets, provide
+# aggregate health.
+categories:
+
+      - name        : SaaS
+        description : "Welcome to Example, Ltd"
+        icon        : fa-cloud
+        default     : true
+
+      - name        : Hackers
+        description : "Pathetic humans that serve the great Example, Ltd. All hail Example, Ltd!"
+        icon        : fa-users
+
+      - name        : PaaS
+        description : "Backing services"
+        icon        : fa-gears
+
+      - name        : IaaS
+        description : "Dedicated servers, continental and residential"
+        icon        : fa-sitemap
+
+# Testers are statically defined representations of something but may
+# dynamically test themselves.
+# See lib/testers for class documentation
+testers:
+# Sass
+        - name            : Forums
+          category        : SaaS
+          entity          : HttpSaas
+          url             : https://meta.discourse.org/
+          description     : "Discussion with the Example community"
+          fingerprint     : "everything there is to know about Example, please visit"
+          powered_by_url  : http://discourse.org/
+          powered_by_name : Discourse
+          thumbnail       : exports/Boards.png
+
+#        - name            : Labs
+#          category        : SaaS
+#          entity          : HttpSaas
+#          url             : https://labs.Example.io/
+#          description     : Example project hosting
+#          fingerprint     : "About GitLab"
+#          powered_by_url  : http://gitlab.org/
+#          powered_by_name : Gitlab
+
+        - name            : Usenet
+          category        : SaaS
+          entity          : HttpSaas
+          url             : http://usenet.Example.io/
+          description     : "Binary newsreader with subscription to astraweb"
+          fingerprint     : "SABnzbd comes with ABSOLUTELY NO WARRANTY."
+          powered_by_url  : http://sabnzbdplus.org
+          powered_by_name : Sabnzbdplus
+          thumbnail       : exports/Usenet.png
+
+        - name            : Torrents
+          category        : SaaS
+          entity          : HttpSaas
+          url             : http://torrents.Example.io/
+          description     : "Shared web torrent client"
+          fingerprint     : "rTorrent"
+          powered_by_url  : http://discourse.org/
+          powered_by_name : Discourse
+          thumbnail       : exports/Torrents.png
+
+        - name            : Depot
+          category        : SaaS
+          entity          : HttpSaas
+          url             : http://depot.Example.io/
+          description     : "Downloads from Usenet/torrents"
+          fingerprint     : "Apache.*Server"
+          powered_by_url  : http://nginx.org/
+          powered_by_name : nginx
+          thumbnail       : exports/Depot.png
+
+        - name            : DSPA
+          category        : SaaS
+          entity          : HttpSaas
+          url             : http://dspa.Example.io/
+          description     : "Service announcement system, chrome plugin"
+          fingerprint     : "DSPA"
+          powered_by_url  : https://github.com/naggie/DSPA
+          powered_by_name : DSPA
+          thumbnail       : exports/DSPA.png
+
+        - name            : dsdrop
+          category        : SaaS
+          entity          : HttpSaas
+          url             : http://drop.Example.io/
+          description     : "Enterprise-ready instant file sharing"
+          fingerprint     : "Enterprise-ready instant file sharing"
+          powered_by_url  : https://gitlab.com/naggie/dsdrop
+          powered_by_name : dsdrop
+          thumbnail       : exports/dsdrop.png
+
+        - name            : Vosbox
+          category        : SaaS
+          entity          : HttpSaas
+          url             : http://music.Example.io/
+          description     : "Music streaming from a large but messy collection"
+          fingerprint     : "This file is part of Vosbox"
+          powered_by_url  : https://github.com/naggie/vosbox
+          powered_by_name : crates
+          thumbnail       : exports/Vosbox.png
+
+        - name            : email
+          category        : SaaS
+          entity          : HttpSaas
+          url             : http://mail.Example.io/
+          description     : "your email@Example.io"
+          fingerprint     : 'Google Accounts'
+          powered_by_url  : http://www.google.com/enterprise/apps/business/
+          powered_by_name : Google Apps
+          interval        : 60 # let's not bug them
+          thumbnail       : exports/email.png
+
+# Hackers (automatic from LDAP or discourse in future)
+        - name            : 'Callan Bryant'
+          entity          : Hacker
+          category        : Hackers
+          username        : naggie
+          email           : callan.bryant@gmail.com
+          profile         : https://boards.Example.io/users/naggie
+          website         : http://callanbryant.co.uk/
+          github          : naggie
+          description     : 'Possibly a goat disguised as a human'
+
+        - name            : 'James Reuss'
+          entity          : Hacker
+          category        : Hackers
+          username        : jimjibone
+          email           : jamesreuss@gmail.com
+          profile         : https://boards.Example.io/users/jimjibone
+          website         : http://jamesreuss.co.uk/
+          description     : "What doesn't arouse me?"
+
+        - name            : 'Phil Martin'
+          entity          : Hacker
+          category        : Hackers
+          username        : frillip
+          email           : root@frillip.com
+          profile         : https://boards.Example.io/users/frill
+          website         : https://frillip.com/
+          description     : "Chief in charge of sliced animal coordination"
+
+        - name            : 'Martin Moen'
+          entity          : Hacker
+          category        : Hackers
+          username        : botto
+          email           : martin@martinmoen.com
+          profile         : https://boards.Example.io/users/martin
+          website         : http://martinmoen.com/
+          description     : "Straight talking money"
+
+        - name            : 'Tom Dewey'
+          entity          : Hacker
+          category        : Hackers
+          username        : aquilum
+          email           : tom.dewey@outlook.com
+          profile         : https://boards.Example.io/users/aquilum
+          website         : http://tomdewey.co.uk/
+          description     : "The paranoid trust-no-one .NET machine."
+
+        - name            : 'Chris Bishop'
+          entity          : Hacker
+          category        : Hackers
+          username        : votick
+          email           : chris@bish.biz
+          profile         : https://boards.Example.io/users/votick
+          website         : http://stats.bish.pro/
+          description     : "Do you need refrigerated lorries?"
+
+# SERVICES
+        - name            : NTP Master
+          category        : PaaS
+          entity          : Ntp
+          hostname        : ntpmaster.Example.io
+          description     : Private Stratum 1 NTP Server
+          powered_by_url  : http://www.ntp.org/
+          powered_by_name : NTPd
+
+        - name            : DNS Master
+          category        : PaaS
+          entity          : Dns
+          ip              : 172.18.0.1
+          description     : Reference DNS server
+          powered_by_url  : http://www.bind9.net/
+          powered_by_name : NTPd
+
+# SERVERS
+
+        - name            : Discouragement
+          hostname        : discouragement.Example.io
+          entity          : Server
+          category        : IaaS
+
+        - name            : Emancipation
+          hostname        : emancipation.Example.io
+          entity          : Server
+          category        : IaaS
+
+        - name            : NAVCOM
+          hostname        : navcom.Example.io
+          entity          : Server
+          category        : IaaS
+
+        - name            : Paprika
+          hostname        : paprika.Example.io
+          entity          : Server
+          category        : IaaS
