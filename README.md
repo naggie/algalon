@@ -1,4 +1,5 @@
 ## Algalon is a web portal with monitoring features.
+![](http://callanbryant.co.uk/blog/images/saas.png)
 
 'Testers,' represented by 'widgets' are organised by categories as tabs.
 Widgets have an initial 'state' which is then continually patched via
@@ -6,6 +7,8 @@ websockets. Tests, which run periodically or via interrupt, can change this
 state. All testers with tests have a pass/fail/undefined state. These states
 are aggregated to form the global health of the system. Testers can be defined
 statically or produced dynamically by an 'enumerator.'
+
+![](http://callanbryant.co.uk/blog/images/d0559a7dd42e3241.png)
 
 Testers consist of a server-side javascript class, using a client-side
 javascript Widget, and some CSS classes. There is currently no packaging system
